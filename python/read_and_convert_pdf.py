@@ -3,6 +3,7 @@ import fitz
 import json
 import re
 
+# todo: add rule reference just like appendix information to subrules (and maybe rules)
 class RuleExtractor:
     def __init__(self):
         self.rules = []
@@ -28,12 +29,16 @@ class RuleExtractor:
         self.rule_headline_font = "RobotoCondensed-Regular"
 
         # subrule headline: font-size=11.0, font-color=21407, font=RobotoCondensed-Regular, example=1.1.
+        # font size can also be: 11.109999656677246
         self.subrule_headline_font_size = 11.0
+        self.subrule_headline_font_size_alternative = 11.109999656677246
         self.subrule_headline_font_color = 21407
         self.subrule_headline_font = "RobotoCondensed-Regular"
 
         # rules text: font-size=9.92471694946289, font-color=0, font=RobotoCondensed-Light, example=Games under jurisdiction of the IIHF...
+        # font size can also be: 10.023963928222656
         self.rule_text_font_size = 9.92471694946289
+        self.rule_text_font_size_alternative = 10.023963928222656
         self.rule_text_font_color = 0
         self.rule_text_font = "RobotoCondensed-Light"
 
@@ -124,6 +129,9 @@ class RuleExtractor:
                                     if font_size < self.get_smallest_font_size():
                                         continue
 
+                                    if "8.3." in text:
+                                        print(span)
+
                                     if not anything_found:
                                         # check for page number
                                         page_number_result = self.check_and_clean_page_number(text, font_size, font_color, font)
@@ -202,8 +210,12 @@ class RuleExtractor:
                                         # check for new section
                                         if section_number_result["status"] and self.current_section_number != self.old_section_number:
                                             if current_section:
+                                                if current_rule and current_subrule:
+                                                    current_rule = self.add_subrule_if_needed(current_rule, current_subrule)
+                                                    current_section = self.add_rule_if_needed(current_section, current_rule)
                                                 self.rules.append(current_section)
-                                                print(current_section)
+                                                current_rule = []
+                                                current_subrule = []
 
                                             # create new section and build structure
                                             current_section = {
@@ -228,6 +240,13 @@ class RuleExtractor:
                                                     current_rule["subrules"].append(current_subrule)
                                                     current_section["section_rules"].append(current_rule)
 
+                                                # case if rule does not has subrules -> check if rule_text is not "" or None and write to rule itself + append
+                                                else:
+                                                    if self.current_rule_text:
+                                                        current_rule["rule_text"] = self.current_rule_text
+                                                        self.current_rule_text = ""
+                                                        current_section["section_rules"].append(current_rule)
+
                                                 current_rule = []
                                                 current_subrule = []
 
@@ -236,6 +255,7 @@ class RuleExtractor:
                                                 "page": self.current_page_number,
                                                 "rule_number": self.current_rule_number,
                                                 "rule_name": None,
+                                                "rule_text": None,
                                                 "subrules": []
                                             }
 
@@ -261,7 +281,8 @@ class RuleExtractor:
                                                 "subrule_number": self.current_subrule_number,
                                                 "subrule_name": None,
                                                 "rule_text": None,
-                                                "appendix_information": None
+                                                "appendix_information": None,
+                                                "rule_reference": None
                                             }
 
                                         if subrule_name_result["status"] and self.current_subrule_name != self.old_subrule_name:
@@ -270,40 +291,8 @@ class RuleExtractor:
 
                                         if additional_info_result["status"] and self.current_appendix_information is not None:
                                             # add appendix result to subrule
-                                            current_subrule["appendix_information"] = self.current_appendix_information
+                                            current_subrule["appendix_information"] = self.add_appendix_information_to_subrule(current_subrule)
                                             self.current_appendix_information = None
-
-                                        # rule_number_changed = rule_number_result["status"] and self.current_rule_number != self.old_rule_number
-                                        # subrule_number_changed = subrule_number_result["status"] and self.current_subrule_number != self.old_subrule_number
-                                        # rule_names_set = self.current_rule_name is not None and self.current_subrule_name is not None
-                                        # rule_text_set = self.current_rule_text is not None and self.current_rule_text != ""
-                                        #
-                                        # if (rule_number_changed or subrule_number_changed) and rule_names_set and rule_text_set:
-                                        #
-                                        #     page = new_rule_start_page
-                                        #     if new_rule_start_page != old_rule_start_page:
-                                        #         page = old_rule_start_page
-                                        #
-                                        #     self.rules.append({
-                                        #         "page": page,
-                                        #         "section_number": self.current_section_number,
-                                        #         "section_name": self.current_section_name,
-                                        #         "rule_number": self.current_rule_number,
-                                        #         "rule_name": self.current_rule_name,
-                                        #         "subrule_number": self.old_subrule_number,
-                                        #         "subrule_name": self.current_subrule_name,
-                                        #         "rule_text": self.current_rule_text.strip(),
-                                        #         "appendix_information": self.current_appendix_information,
-                                        #     })
-                                        #
-                                        #     self.current_rule_text = ""
-                                        #     self.current_appendix_information = None
-                                        #
-                                        #     if rule_number_changed:
-                                        #         self.old_rule_number = self.current_rule_number
-                                        #
-                                        #     if subrule_number_changed:
-                                        #         self.old_subrule_number = self.current_subrule_number
 
         # todo: need to add the last subrule to the current rule and the current section
         if current_section and current_rule and current_subrule:
@@ -313,7 +302,9 @@ class RuleExtractor:
             if current_subrule["appendix_information"] != "" or current_subrule["appendix_information"] is None:
                 current_subrule["appendix_information"] = self.current_appendix_information
 
-            current_section["section_rules"][-1]["subrules"].append(current_subrule)
+            #current_section["section_rules"][-1]["subrules"].append(current_subrule)
+            current_rule = self.add_subrule_if_needed(current_rule, current_subrule)
+            current_section = self.add_rule_if_needed(current_section, current_rule)
             self.rules.append(current_section)
 
         return self.rules
@@ -408,9 +399,8 @@ class RuleExtractor:
         stripped_text = text.strip()
 
         # check for matching font-size, color and family
-        if font_size != self.subrule_headline_font_size or font_color != self.subrule_headline_font_color or self.subrule_headline_font != font_family:
+        if (font_size != self.subrule_headline_font_size and font_size != self.subrule_headline_font_size_alternative) or font_color != self.subrule_headline_font_color or self.subrule_headline_font != font_family:
             return {"status": False, "num": None}
-
 
         if re.fullmatch("^\d{1,3}\.\d{1,2}(\.\d{1,2})?\.?$", stripped_text):
             return {"status": True, "num": stripped_text}
@@ -422,7 +412,7 @@ class RuleExtractor:
         stripped_text = text.strip()
 
         # check for matching font-size, color and family
-        if font_size != self.subrule_headline_font_size or font_color != self.subrule_headline_font_color or self.subrule_headline_font != font_family:
+        if (font_size != self.subrule_headline_font_size and font_size != self.subrule_headline_font_size_alternative) or font_color != self.subrule_headline_font_color or self.subrule_headline_font != font_family:
             return {"status": False, "name": None}
 
         if stripped_text.isupper() and last_span:
@@ -439,8 +429,9 @@ class RuleExtractor:
 
         # check for matching font-size, color and family
         is_rule_text = font_size == self.rule_text_font_size and font_color == self.rule_text_font_color and self.rule_text_font == font_family
+        is_rule_text_alternative_font_size = self.rule_text_font_size_alternative == font_size
         is_rule_text_headline = font_size == self.rule_text_headline_font_size and font_color == self.rule_text_headline_font_color and self.rule_text_headline_font == font_family
-        if not is_rule_text and not is_rule_text_headline:
+        if not (is_rule_text or is_rule_text_alternative_font_size) and not is_rule_text_headline:
             return {"status": False, "text": None}
 
         rule_text = current_rule_text + " " + stripped_text
@@ -454,11 +445,65 @@ class RuleExtractor:
         if font_size != self.appendix_text_font_size or font_color != self.appendix_text_font_color or self.appendix_text_font != font_family:
             return {"status": False, "text": None}
 
-        match = re.search(r"For more information refer to Appendix (.*?)\.", stripped_text)
+        match = re.search(r"For more information refer to Appendix (.*?)(?:\.|$)", stripped_text)
         if match:
             return {"status": True, "text": match.group(1).strip()}
 
         return {"status": False, "text": None}
+
+    def add_appendix_information_to_subrule(self, current_subrule):
+        if current_subrule["appendix_information"] is None:
+            return [self.current_appendix_information]
+        else:
+            found = False
+            for information in current_subrule["appendix_information"]:
+                if information == self.current_appendix_information:
+                    found = True
+                    break
+
+            if not found:
+                current_subrule_appendix_information = current_subrule["appendix_information"]
+                current_subrule_appendix_information.append(self.current_appendix_information)
+                return current_subrule_appendix_information
+
+    def add_subrule_if_needed(self, current_rule, current_subrule):
+        if current_subrule is None:
+            return current_rule
+
+        subrule_number = current_subrule["subrule_number"]
+        found = False
+        for subrule in current_rule["subrules"]:
+            if subrule_number == subrule["subrule_number"]:
+                found = True
+                break
+
+        if not found:
+            # add rule text to rule, since it's now finished (if not already done)
+            if self.current_rule_text:
+                current_subrule["rule_text"] = self.current_rule_text
+                self.current_rule_text = ""
+
+            current_rule["subrules"].append(current_subrule)
+
+        return current_rule
+
+    def add_rule_if_needed(self, current_section, current_rule):
+        if current_rule is None:
+            return current_section
+
+        rule_number = current_rule["rule_number"]
+        found = False
+        for rule in current_section["section_rules"]:
+            if rule_number == rule["rule_number"]:
+                found = True
+                break
+
+        if not found:
+            current_section["section_rules"].append(current_rule)
+
+        return current_section
+
+        return current_section
 
     def reset_current_variables(self):
         # temp vars for rule creation
