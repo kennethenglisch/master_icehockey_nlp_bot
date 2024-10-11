@@ -1,0 +1,231 @@
+[
+    {
+        "section_number": "SECTION 01",
+        "section_name": "PLAYING AREA",
+        "section_rules": [
+            {
+                "page": 17,
+                "rule_number": 1,
+                "rule_name": "RINK",
+                "subrules": [
+                    {
+                        "page": 17,
+                        "subrule_number": "1.1.",
+                        "subrule_name": "RINK",
+                        "rule_text": " Games under jurisdiction of the IIHF shall be played on an ice surface known as the “Rink” and must adhere to the dimensions and specifications prescribed by the IIHF and these rules. No ice markings shall be permitted except those provided for under these rules unless express written permission has been obtained from the IIHF. On-ice logos must not interfere with any official ice markings provided for the proper playing of the game. In the interval between periods, the ice surface shall be flooded unless mutually agreed to the contrary.",
+                        "appendix_information": null
+                    },
+                    {
+                        "page": 17,
+                        "subrule_number": "1.2.",
+                        "subrule_name": "DIMENSIONS",
+                        "rule_text": " The official size of the Rink shall be 60 m long and 26 m to 30 m wide. The corners shall be rounded in the arc of a circle with a radius of 7.0 m to 8.50 m. Any deviations from these dimensions for any IIHF competition require IIHF approval.",
+                        "appendix_information": "VI – Infographics"
+                    },
+                    {
+                        "page": 17,
+                        "subrule_number": "1.3.",
+                        "subrule_name": "BOARDS AND PROTECTIVE GLASS",
+                        "rule_text": " The Rink shall be surrounded by a wall known as the “Boards”. The ideal height of the boards above the ice surface shall be 1.07 m. Except for the official markings provided for in these rules, the entire playing surface and the Boards shall be white in color except the “Kick Plate” at the bottom of the Boards, which shall be light yellow in color. Any variations from any of the foregoing dimensions shall require official authorization by the IIHF. The Boards shall be constructed in such a manner that the surface facing the ice shall be smooth and free of any obstruction or any object that could cause injury to Players. Affixed to the Boards and extending vertically shall be an approved “Protective Glass” construction which allow the sections to be flexible. The height above the Boards behind the Goals must be 2.4 m and must extend at least 4.0 m from the “Goal Line” towards the Blue Line. The height above the Boards along the sides must be 1.8 m, except in front of the Players’ Benches. Protective Glass shall be required in front of the Penalty Boxes. The Protective Glass and gear to hold them in position shall be properly padded or protected and mounted on the Boards on the side away from the playing surface including the “Protective Netting” outlined in:",
+                        "appendix_information": "VI – Infographics"
+                    },
+                    {
+                        "page": 18,
+                        "subrule_number": "1.4.",
+                        "subrule_name": "PROTECTIVE NETTING",
+                        "rule_text": " Protective Netting shall be hung in the ends of the Arena, of a height, type, and in a manner approved by the IIHF. The Protective Netting must be suspended above the “End-zone” Protective Glass behind both Goals and must extend around the Rink at least to where the Goal Line meets the Boards. The Protective Netting is to be installed in such a way that it protects the top bench row viewer. Thus, the height of the Protective Netting is determined by the height of the Rink and the settings of the top row of benches.",
+                        "appendix_information": "VI – Infographics"
+                    },
+                    {
+                        "page": 19,
+                        "subrule_number": "1.5.",
+                        "subrule_name": "LINES",
+                        "rule_text": " Goal Lines: A red line, 5 cm wide, shall be drawn across the entire width of the ice surface, 4.0 m from each end of the ice surface and continued vertically along the side of the Boards. This line shall be referred to as the \"Goal Line\". The Goal posts and nets shall be set in such a manner as to remain stationary during the process of the game. Goal Crease: In front of each Goal, an area shall be marked by a red line 5 cm wide, named as the “Goal Crease”. Blue Lines: The ice surface between the Goals shall be divided into three (3) zones by lines, 30 cm in width, and blue in color, and extended completely across the Rink, parallel with the Goal Lines, and continued vertically up the side of the Boards, named as the “Blue Lines”. In case advertising is allowed on the Boards, the lines must be marked at least on the Kick Plate. Center Line: Another line, 30 cm in width and red in color, drawn completely across the Rink on center ice, parallel with the Goal Lines and con- tinued vertically up the side of the Boards, named as the “Center Line”. In case advertising is allowed on the Boards, the lines must be marked at least on the Kick Plate.",
+                        "appendix_information": "VI – Infographics"
+                    },
+                    {
+                        "page": 19,
+                        "subrule_number": "1.6.",
+                        "subrule_name": "DIVISION OF ICE SURFACE",
+                        "rule_text": " Defending Zone: The portion of the ice surface in which the Goal is situated shall be called the “Defending Zone” of the Team defending that goal. Neutral Zone: The central portion shall be known as the “Neutral Zone”. Attacking Zone: The portion farthest from the defended Goal shall be the “Attacking Zone”.",
+                        "appendix_information": null
+                    },
+                    {
+                        "page": 20,
+                        "subrule_number": "1.7.",
+                        "subrule_name": "GOAL CREASE / ON-ICE OFFICIALS’ CREASE",
+                        "rule_text": " Goal Crease (markings on the ice surface): Goal Crease Area/ Space: The Goal Crease Area includes all of the space outlined by the crease lines and extends vertically until the top of the crossbar. On-ice Official Crease: In front of the Official Scorekeepers’ Box, a semi-circular area is marked on the ice surface, called the \"On-ice Officials Crease\". A 5 cm wide red line with a radius of 3.0 m marks this crease area.",
+                        "appendix_information": "VI – Infographics"
+                    },
+                    {
+                        "page": 20,
+                        "subrule_number": "1.8.",
+                        "subrule_name": "GOALKEEPER’S RESTRICTED AREA",
+                        "rule_text": " Behind each goal, a trapezoidal area is marked on the ice surface, called the \"Goalkeeper Restricted Area\". The two 5 cm wide red lines mark the restricted area between the Goal Line and the Boards behind the Goal. The outside dimension of the marking along the Goal Line is 6.80 m and along the Boards is 8.60 m, and the lines continue vertically on the Kick Plate.",
+                        "appendix_information": "VI – Infographics"
+                    },
+                    {
+                        "page": 20,
+                        "subrule_number": "1.9.",
+                        "subrule_name": "FACE-OFF SPOTS AND CIRCLES",
+                        "rule_text": " Face-off Spot and Circle at Center Ice: A circular blue spot, 30 cm in diameter, shall be marked exactly in the center of the Rink. This spot shall be referred to as the “Center Ice Face-off Spot”. With this spot as a center, a circle of 4.50 m radius shall be marked with a blue line 5 cm wide. Face-off Spots in the Neutral Zone: Two (2) red spots, 60 cm in diameter, shall be marked on the ice in the Neutral Zone 1.50 m from each Blue Line. These four (4) spots shall be referred to as the “Neutral-zone Face-off Spots”. Within the Face-off Spot, draw two parallel lines 8 cm from the top and bottom of the spot. The area within the two lines shall be painted red, the remainder shall be painted white. The spots shall be 14.0 m apart and each shall be a uniform distance from the adjacent Boards. Face-off Spots and Circles in the End-Zones (Attacking and Defending Zone): In both End-zones and on both sides of each goal, red Face-off Spots and circles shall be marked on the ice. The Face-off Spots shall be 60 cm in diameter. These four (4) spots shall be referred to as the “End-zone Face-off Spots”. Within the Face-off Spot, draw two parallel lines 8 cm from the top and bottom of the spot. The area within the two lines shall be painted red, the remainder shall be painted white. The circles shall be marked with a red line 5 cm wide with a radius of 4.50 m from the center of the Face-off Spots. At the outer edge of both sides of each Face-off Circle and parallel to the “Goal Line”, two red lines 5 cm wide and 60 cm in length and 1.70 m apart shall be marked. 30 cm away from the outer edge of the Face-off Spot, two red lines 5 cm wide shall be drawn parallel with the Side Boards that shall be 1.20 m in length and 45 cm apart. Parallel to the End Boards, commencing at the end of the line nearest to the Face-off Spot, a red line 5 cm wide shall extend 90 cm in length.",
+                        "appendix_information": null
+                    },
+                    {
+                        "page": 21,
+                        "subrule_number": "1.10.",
+                        "subrule_name": "ICE CLEANING",
+                        "rule_text": " Aside from the normal ice resurfacing that is performed during the intermissions between each period of play. If applicable, additional snow removal activities shall be performed.",
+                        "appendix_information": null
+                    }
+                ]
+            },
+            {
+                "page": 21,
+                "rule_number": 2,
+                "rule_name": "GOAL POSTS AND NETS",
+                "subrules": [
+                    {
+                        "page": 21,
+                        "subrule_number": "2.1.",
+                        "subrule_name": "GOAL POSTS",
+                        "rule_text": " Each Rink must have two (2) “Goal Nets”, one at either end of the Rink. The “Goal Net” is comprised of a Goal frame and netting. The open end of the goal net must face Center ice. Each Goal Net must be located in the center of the Goal Line at either end and must be installed in such manner as to remain stationary during the progress of the game. The Goal posts must be kept in position by means of flexible pegs affixed in the ice or floor, but which displace the Goal Net from its moorings upon significant contact. The holes for the goal pegs must be located exactly on the Goal Line. The Goal posts shall be of an approved design and material, extending vertically 1.22 m above the surface of the ice and set 1.83 m apart measured from the inside of the posts. A crossbar of the same material as the Goal posts shall extend from the top of one post to the top of the other. The Goal posts and crossbar shall be painted in red color and all other exterior surfaces shall be painted in white color.",
+                        "appendix_information": null
+                    },
+                    {
+                        "page": 22,
+                        "subrule_number": "2.2.",
+                        "subrule_name": "GOAL NETS",
+                        "rule_text": " A net of an approved design shall be attached to each Goal frame and made of white nylon cord, which shall be draped in such a manner as to prevent the puck coming to rest on the outside of it yet strung in a manner that will keep the puck in the net. A skirt of heavy white nylon fabric or heavyweight white canvas shall be laced around the base plate of the goal frame in such a way as to protect the Goal net from being cut or broken. This protective padding must be attached in a manner that will not restrict the puck from completely crossing the Goal Line. This padding must be set back 15 cm from the inside of the Goal post. This skirt shall not project more than 2.5 cm above the base plate. The frame of the Goal shall be draped with a nylon mesh net to completely enclose the back of the frame.",
+                        "appendix_information": null
+                    }
+                ]
+            },
+            {
+                "page": 22,
+                "rule_number": 3,
+                "rule_name": "BENCHES",
+                "subrules": [
+                    {
+                        "page": 22,
+                        "subrule_number": "3.1.",
+                        "subrule_name": "PLAYERS’ BENCHES",
+                        "rule_text": " Each Rink shall be provided with seats or benches for the use by Players of both Teams. Teams must use the same Player’s Bench for the duration of a game. The accommodations provided, including benches and doors, must be uniform for both Teams. The Players’ Benches shall be placed immediately alongside the ice as near to the center of the Rink as possible. Two (2) doors for each Players’ Bench must be uniform in location and size and as conveniently close to the Dressing Rooms as possible. Each Players’ Bench should be 10 m in length and 1.50 m in width and when situated in the spectator area, shall be separated from the spectators by a Protective Glass to afford the necessary protection for the Players and Team Personnel. The Players’ Benches shall be on the same side of the playing surface opposite the Penalty Box and should be separated by a substantial distance, if possible. Note The designated Home Team is entitled to its choice of Players’ Bench if not otherwise defined. At IIHF Championships, the respective Player’s Benches will be assigned to the respective Teams.",
+                        "appendix_information": "VI – Infographics"
+                    },
+                    {
+                        "page": 22,
+                        "subrule_number": "3.2.",
+                        "subrule_name": "PENALTY BOX",
+                        "rule_text": " Each Rink must be provided with benches or seats to be known as the “Penalty Box”. Separate Penalty Boxes shall be provided for each Team and they shall be situated on the opposite sides directly across the ice from their Players' Benches. Teams must use the “Penalty Box” opposite their Players’ Bench and must use the same “Penalty Box” for the duration of a game. Each “Penalty Box” should be at least 4.0 m in length and 1.50 m in width and shall be separated from the spectators by a Protective Glass to afford the necessary protection for the Players. Each Penalty Box must be of the same size and quality, offering no advantage to either Team in any manner and must have only one door for both entry and exit and must be operated only by the “Penalty Box Attendant”. Only the Penalty Box Attendant, penalized Skaters, and Game Officials are allowed access to the Penalty Boxes.",
+                        "appendix_information": null
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "section_number": "SECTION 02",
+        "section_name": "TEAMS",
+        "section_rules": [
+            {
+                "page": 22,
+                "rule_number": 4,
+                "rule_name": "SIGNAL AND TIMING DEVICES",
+                "subrules": [
+                    {
+                        "page": 22,
+                        "subrule_number": "4.1.",
+                        "subrule_name": "SIGNAL DEVICES",
+                        "rule_text": " Each Rink must be provided with a suitable sound device that will sound automatically at the conclusion of each period of play. Should the sound device fail to sound automatically when time expires, the determining factor as to whether the period has ended shall be the Game Clock.",
+                        "appendix_information": null
+                    },
+                    {
+                        "page": 22,
+                        "subrule_number": "4.2.",
+                        "subrule_name": "TIMING DEVICES",
+                        "rule_text": " Each Rink shall be provided with some form of electronic game clock for the purpose of keeping the spectators, Players, Team Personnel and Game Officials accurately informed as to all time elements at all stages of the game including the time remaining to be played in any period and the time remaining to be served by penalized Players on each Team. The game clock is activated by facing-off of the puck by an On-ice Official and shall be stopped by the whistle of an Off-ice Official. Time recording for both game time and penalty time shall show time remaining to be played or served. The Game Time Clock shall measure the time remaining in tenths (1/10) of a second during the last minute of each period.",
+                        "appendix_information": null
+                    }
+                ]
+            },
+            {
+                "page": 25,
+                "rule_number": 5,
+                "rule_name": "TEAM",
+                "subrules": [
+                    {
+                        "page": 25,
+                        "subrule_number": "5.1.",
+                        "subrule_name": "ELIGIBLE PLAYERS",
+                        "rule_text": " A Game is contested between two (2) Teams which play under the direction of On-ice and Off-ice Officials. A Team shall be composed of twenty-two (22) Players. No more than twenty (20) Skaters and two (2) Goalkeepers shall be permit- ted. For the purposes of these playing rules, any reference to “Player” shall refer to both Skaters and Goalkeepers. Any reference to “Goal- keeper” shall mean that the section of the rule is specific to Goalkeepers. Prior to the start of each game, the Team Manager or Coach of each Team shall list on a “Line-up / Roster Sheet” the Players who are eligible to play in the game. For a Team to play a game, it must be able to put on the ice at least five (5) Skaters and one (1) Goalkeeper at the beginning of the game. Only eligible Players can be listed on the Roster Sheet and play in a Game. Players who are registered for a tournament or event but who are not listed on the Official Game Sheet can participate in the pre-game warm-up. The Coach must submit the “Line-up / Roster Sheet” to the Official Scorekeeper at least sixty (60) minutes prior to the start of the game. The Official Game Sheet with the listed names and numbers of all eligible Players must be handed to the On-ice Game Offi- cials before the Game, and no change shall be permitted to the Official Game Sheet after the commencement of the Game. Prior to the Game, if an Official (on-ice or off-ice) notices that a Player is in uniform but has not been included on the Official Game Sheet, the Referee shall bring this to the attention of the offending Team so that the necessary correction can be made to the Official Game Sheet with no penalty assessed. At IIHF Championships, a representative from each Team must confirm the “Line-up / Roster Sheet” at least two (2) minutes prior to the start of the Game, and Players may be added or deleted up to the “opening face-off”. Game rules will not allow for a Team to have more than six (6) Players (one (1) Goalkeeper and five (5) Skaters) on the ice at any time during game action when the team is not penalized. A Team must put at least four (4) Players (one (1) Goalkeeper and three (3) Skaters) on the ice, if two (2) or more Players are pena- lized. A Team must put the required number of players on the ice to resume play.",
+                        "appendix_information": null
+                    },
+                    {
+                        "page": 25,
+                        "subrule_number": "5.2.",
+                        "subrule_name": "INELIGIBLE PLAYER",
+                        "rule_text": " Only Players on the Roster Sheet list submitted to the Official Scorekeeper before the game may participate in the Game. The de- termining factor when considering whether a Player is eligible is that the Player’s name, and not necessarily the Player’s number, must be correctly listed by the Team Manager or Coach of that Team. Whenever an ineligible Player is identified to the Referee, the ineligible Player will be removed from the Game and the Team shall not be able to substitute another Player from its Roster. No additional penalties are to be assessed but a report of the incident must be submitted to the Proper Authorities. For an ineligible Goalkeeper see Rule 5.3 – Goalkeeper. If a goal is scored when an ineligible Player is on the ice (whether they were involved in the scoring or not), the goal will be disallowed. This only applies to the goal scored at the stoppage of play whereby the Player was deemed to be ineligible. All other goals scored previously by the ineligible Player’s Team (with them on the ice or not) shall be allowed. If a Player is assessed a penalty, and during the penalty they are found to be an ineligible Player, they will be removed from the game and another Player of their Team, designated by the Coach, must serve the remainder of the penalty. No additional penalties are to be assessed but a report of the incident must be submitted to the Proper Authorities.",
+                        "appendix_information": null
+                    },
+                    {
+                        "page": 26,
+                        "subrule_number": "5.3.",
+                        "subrule_name": "GOALKEEPER",
+                        "rule_text": " Each Team shall be allowed one (1) Goalkeeper on the ice at one time. The Goalkeeper may be removed and substituted by another Skater. Such substitute shall not be permitted the privileges of the Goalkeeper. Each Team shall have on its Players’ Bench, or on a chair immediately beside the Players’ Bench (or nearby), a substitute Goalkeeper who shall always be fully equipped and ready to play. Each team shall have two (2) Goalkeepers listed on the Official Game Sheet. Exceptions to this rule are permitted in specific IIHF Championships where, only one (1) Goalkeeper, or a third (3rd) listed Goalkeeper is allowed. If the listed (one or two) Goalkeeper/s is/are incapacitated, that Team shall be entitled to dress and play any Goalkeeper who is eligible. In the event that the two (2) regular Goalkeepers are injured or incapacitated in quick succession, the third (3rd) Goal- keeper shall be provided with a reasonable amount of time to get dressed, in addition to a two-minute (2) warm-up (except when they enter the game to defend against a “Penalty Shot”). If, however, the third (3rd) Goalkeeper is dressed and on the Players’ Bench when the second (2nd) Goalkeeper becomes incapacitated, the third (3rd) Goalkeeper shall enter the game immediately and no warm-up is permitted.",
+                        "appendix_information": null
+                    },
+                    {
+                        "page": 26,
+                        "subrule_number": "5.4.",
+                        "subrule_name": "COACHES AND TEAM PERSONNEL",
+                        "rule_text": " Only Players in uniform and official team personnel duly registered on the Roster Sheet shall be permitted to occupy the Player’s Benches so provided. Every Team must have at least one, and not more than eight (8), Staff Members behind the Team on the Players’ Bench to act as Coach and at least one (1) qualified Coach or Medical Expert to treat Players in case of injury.",
+                        "appendix_information": null
+                    },
+                    {
+                        "page": 26,
+                        "subrule_number": "5.5.",
+                        "subrule_name": "TEAM OFFICIALS AND TECHNOLOGY",
+                        "rule_text": " Team personnel who are on or near the Players’ Bench during the Game may use radio-technology to contact other Team Personnel in an area designated by the IIHF. Other forms of technology are permitted for Coaching purposes only (e.g., statistics, tagging) and may not be used to attempt to influence the decisions of the On-ice Officials in any way. If the technology is misused, a penalty shall be assessed according to:",
+                        "appendix_information": null
+                    },
+                    {
+                        "page": 26,
+                        "subrule_number": "5.6.",
+                        "subrule_name": "PRE-GAME WARM-UP ON THE ICE",
+                        "rule_text": " During warm-up on the ice, all protective equipment must be properly worn. Players registered for an IIHF Championship and not listed on the “Line-up / Roster Sheet” may participate in a “pre-game warm-up” on the ice. No Player can warm-up on ice at the end of a period or at any stoppage of play. No penalties are to be assessed but a report of the incident must be submitted to the Proper Authorities.",
+                        "appendix_information": null
+                    }
+                ]
+            },
+            {
+                "page": 27,
+                "rule_number": 6,
+                "rule_name": "CAPTAIN AND ALTERNATE CAPTAINS",
+                "subrules": [
+                    {
+                        "page": 27,
+                        "subrule_number": "6.1.",
+                        "subrule_name": "CAPTAIN",
+                        "rule_text": " One (1) Captain shall be appointed by each Team, and they alone shall have the privilege of discussing with the Referees any ques- tions relating to interpretation of rules which may arise during the progress of a Game. The Captain shall wear the letter “C,” approximately 8 cm in height and in contrasting color, in a conspicuous position on the front of their jersey. No “Co-Captains” are permitted. One (1) Captain and no more than two (2) Alternate Captains are permitted – see Rule 6.2 – Alternate Captains. Any Captain, Alternate Captain or any Player who comes off the Players’ Bench and makes any protest or intervention with the Officials for any purpose shall be assessed a Minor Penalty for “Unsportsmanlike Conduct”. Should this protest continue, they may be assessed a Misconduct Penalty, and if it further continues, a Game Misconduct Penalty shall be assessed. A complaint about a penalty is not a matter “relating to the interpretation of the rules” and a Minor Penalty shall be imposed against any Captain, Alternate Captain or any other Player making such a complaint. The Referee and Official Scorekeeper shall be advised, prior to the start of each game, the name of the Captain and the Alternate Captains of both Teams. A team cannot change its Captain or Alternate Captains during a game. If a Captain is ejected from a game or cannot play the entire game because of an injury, one of the Alternate Captains must assume their duties. If both the Captain and Alternate Captain are on the ice, only the Captain is allowed to talk to the Referee about a point of interpre- tation. If either the Captain or the Alternate Captain comes off the Players Bench, uninvited by the Referee, they shall be penalized accordingly. No playing Coach or playing Team Manager or Goalkeeper shall be permitted to act as Captain or Alternate Captain.",
+                        "appendix_information": null
+                    },
+                    {
+                        "page": 27,
+                        "subrule_number": "6.2.",
+                        "subrule_name": "ALTERNATE CAPTAINS",
+                        "rule_text": " If the Captain is not on the ice, an Alternate Captain on the ice shall be accorded the privileges of the Captain. Alternate Captains shall wear the letter “A” approximately 8 cm in height and in contrasting color, in a conspicuous position on the front of their jerseys.",
+                        "appendix_information": null
+                    },
+                    {
+                        "page": 29,
+                        "subrule_number": "8.2.",
+                        "subrule_name": "INJURED GOALKEEPER",
+                        "rule_text": "",
+                        "appendix_information": null
+                    }
+                ]
+            }
+        ]
+    }
+]
