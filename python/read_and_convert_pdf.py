@@ -3,7 +3,7 @@ import fitz
 import json
 import re
 
-# todo: add rule reference just like appendix information to subrules (and maybe rules)
+# todo: look at roman numbers (I, II, III, IV, V, etc.)
 class RuleExtractor:
     def __init__(self):
         self.rules = []
@@ -52,6 +52,13 @@ class RuleExtractor:
         self.appendix_text_font_color = 21407
         self.appendix_text_font = "RobotoCondensed-Regular"
 
+        # appendix text: font-size=9.75, font-color=21407, font=RobotoCondensed-Regular, example=For more information refer to Appendix VI – Infographics.
+        self.rule_reference_text_font_size = 9.75
+        self.rule_reference_text_font_size_alternative = 10.100000381469727
+        self.rule_reference_text_font_color = 21407
+        self.rule_reference_text_font_color_alternative = 2251163
+        self.rule_reference_text_font = "RobotoCondensed-Regular"
+
         # temp vars for rule creation
         self.current_page_number = 0
         self.current_section_number = None
@@ -62,6 +69,7 @@ class RuleExtractor:
         self.current_subrule_name = None
         self.current_rule_text = ""
         self.current_appendix_information = None
+        self.current_rule_reference = None
 
         self.old_section_number = None
         self.old_section_name = None
@@ -79,13 +87,16 @@ class RuleExtractor:
             self.subrule_headline_font_size,
             self.rule_text_font_size,
             self.appendix_text_font_size,
+            self.subrule_headline_font_size_alternative,
+            self.rule_text_font_size_alternative,
+            self.rule_reference_text_font_size_alternative
         ]
 
         return min(font_sizes)
 
     @staticmethod
     def get_pdf_path():
-        pdf_path = input("Bitte geben Sie den Pfad zu Ihrem Regelbuch (PDF) ein oder wählen Sie eine der folgenden Optionen\nEnter oder 1 - rulebook_one_page_test.pdf\n2 - rulebook_three_page_test.pdf\n3 - rulebook_two_sections_test.pdf: ")
+        pdf_path = input("Bitte geben Sie den Pfad zu Ihrem Regelbuch (PDF) ein oder wählen Sie eine der folgenden Optionen\nEnter oder 1 - rulebook_one_page_test.pdf\n2 - rulebook_three_page_test.pdf\n3 - rulebook_two_sections_test.pdf\n4 - rulebook_three_sections_test.pdf: ")
 
         if pdf_path == "" or pdf_path == "1":
             pdf_path = "../rulebook_one_page_test.pdf"
@@ -96,6 +107,9 @@ class RuleExtractor:
         if pdf_path == "3":
             pdf_path = "../rulebook_two_sections_test.pdf"
 
+        if pdf_path == "4":
+            pdf_path = "../rulebook_three_sections_test.pdf"
+
         if not os.path.isfile(pdf_path):
             print("Der angegebene Pfad ist ungültig. Bitte überprüfen Sie den Pfad und versuchen Sie es erneut.")
             return None
@@ -104,8 +118,6 @@ class RuleExtractor:
 
     def extract_rules_from_pdf(self, pdf_path):
         last_span = None
-        old_rule_start_page = None
-        new_rule_start_page = None
 
         current_section = []
         current_rule = []
@@ -113,7 +125,7 @@ class RuleExtractor:
 
         with fitz.open(pdf_path) as pdf:
             for page in pdf:
-                for text in page.get_text("dict")["blocks"]:
+                for text in page.get_text("dict", None, None, None, True)["blocks"]:
                     if "lines" in text:
                         for line in text["lines"]:
                             if self.is_horizontal_text(self, line["dir"]):
@@ -126,11 +138,23 @@ class RuleExtractor:
                                     font_color = span["color"]
                                     font = span["font"]
 
+                                    if "36" in text:
+                                        print(text)
+
+                                    if "10.2." in text:
+                                        print(text)
+
+                                    if "10.3." in text:
+                                        print(text)
+
+                                    if "10.4." in text:
+                                        print(text)
+
+                                    if "10.5." in text:
+                                        print(text)
+
                                     if font_size < self.get_smallest_font_size():
                                         continue
-
-                                    if "8.3." in text:
-                                        print(span)
 
                                     if not anything_found:
                                         # check for page number
@@ -176,8 +200,6 @@ class RuleExtractor:
                                         if subrule_number_result["status"]:
                                             self.old_subrule_number = self.current_subrule_number
                                             self.current_subrule_number = subrule_number_result["num"]
-                                            old_rule_start_page = new_rule_start_page
-                                            new_rule_start_page = self.current_page_number
                                             anything_found = True
 
                                     if not anything_found:
@@ -197,6 +219,12 @@ class RuleExtractor:
                                         additional_info_result = self.check_and_clean_appendix_information(text, font_size, font_color, font)
                                         if additional_info_result["status"]:
                                             self.current_appendix_information = additional_info_result["text"]
+                                            anything_found = True
+
+                                    if not anything_found:
+                                        rule_reference_result = self.check_and_clean_rule_reference(text, font_size, font_color, font)
+                                        if rule_reference_result["status"]:
+                                            self.current_rule_reference = rule_reference_result["text"]
                                             anything_found = True
 
                                     last_span = span
@@ -294,15 +322,18 @@ class RuleExtractor:
                                             current_subrule["appendix_information"] = self.add_appendix_information_to_subrule(current_subrule)
                                             self.current_appendix_information = None
 
-        # todo: need to add the last subrule to the current rule and the current section
+                                        if rule_reference_result["status"] and self.current_rule_reference is not None:
+                                            # add rule reference to subrule
+                                            current_subrule["rule_reference"] = self.add_rule_reference_to_subrule(current_subrule)
+                                            self.current_rule_reference = None
+
         if current_section and current_rule and current_subrule:
             if current_subrule["rule_text"] == "" or current_subrule["rule_text"] is None:
                 current_subrule["rule_text"] = self.current_rule_text
 
-            if current_subrule["appendix_information"] != "" or current_subrule["appendix_information"] is None:
-                current_subrule["appendix_information"] = self.current_appendix_information
+            current_subrule["appendix_information"] = self.add_appendix_information_to_subrule(current_subrule)
+            current_subrule["rule_reference"] = self.add_rule_reference_to_subrule(current_subrule, True)
 
-            #current_section["section_rules"][-1]["subrules"].append(current_subrule)
             current_rule = self.add_subrule_if_needed(current_rule, current_subrule)
             current_section = self.add_rule_if_needed(current_section, current_rule)
             self.rules.append(current_section)
@@ -435,7 +466,7 @@ class RuleExtractor:
             return {"status": False, "text": None}
 
         rule_text = current_rule_text + " " + stripped_text
-        return {"status": True, "text": rule_text}
+        return {"status": True, "text": rule_text.strip()}
 
     def check_and_clean_appendix_information(self, text, font_size, font_color, font_family):
         # strip text for white spaces
@@ -451,20 +482,60 @@ class RuleExtractor:
 
         return {"status": False, "text": None}
 
+    def check_and_clean_rule_reference(self, text, font_size, font_color, font_family):
+        # strip text for white spaces
+        stripped_text = text.strip()
+
+        # check for matching font-size, color and family
+        is_font_size = font_size == self.rule_reference_text_font_size or font_size == self.rule_reference_text_font_size_alternative
+        is_font_color = font_color == self.rule_reference_text_font_color or font_color == self.rule_reference_text_font_color_alternative
+        is_font_family = font_family == self.rule_reference_text_font
+        if is_font_size and is_font_color and is_font_family:
+            match = re.search(r"Rule \d{1,3}(\.\d{1,2})*\.?\s*[-–]", stripped_text)
+            if match:
+                return {"status": True, "text": stripped_text.rstrip(".")}
+
+        return {"status": False, "text": None}
+
     def add_appendix_information_to_subrule(self, current_subrule):
+        if self.current_appendix_information is None or self.current_appendix_information == "":
+            return current_subrule["appendix_information"]
+
         if current_subrule["appendix_information"] is None:
             return [self.current_appendix_information]
-        else:
-            found = False
-            for information in current_subrule["appendix_information"]:
-                if information == self.current_appendix_information:
-                    found = True
-                    break
 
-            if not found:
-                current_subrule_appendix_information = current_subrule["appendix_information"]
-                current_subrule_appendix_information.append(self.current_appendix_information)
-                return current_subrule_appendix_information
+        found = False
+        for information in current_subrule["appendix_information"]:
+            if information == self.current_appendix_information:
+                found = True
+                break
+
+        if not found:
+            current_subrule_appendix_information = current_subrule["appendix_information"]
+            current_subrule_appendix_information.append(self.current_appendix_information)
+            return current_subrule_appendix_information
+
+        return current_subrule["appendix_information"]
+
+    def add_rule_reference_to_subrule(self, current_subrule, last = False):
+        if self.current_rule_reference is None or self.current_rule_reference == "":
+            return current_subrule["rule_reference"]
+
+        if current_subrule["rule_reference"] is None:
+            return [self.current_rule_reference]
+
+        found = False
+        for reference in current_subrule["rule_reference"]:
+            if reference == self.current_rule_reference:
+                found = True
+                break
+
+        if not found:
+            current_subrule_rule_reference = current_subrule["rule_reference"]
+            current_subrule_rule_reference.append(self.current_rule_reference)
+            return current_subrule_rule_reference
+
+        return current_subrule["rule_reference"]
 
     def add_subrule_if_needed(self, current_rule, current_subrule):
         if current_subrule is None:
@@ -503,8 +574,6 @@ class RuleExtractor:
 
         return current_section
 
-        return current_section
-
     def reset_current_variables(self):
         # temp vars for rule creation
         self.current_page_number = 0
@@ -521,7 +590,6 @@ extract_pdf_path = rule_extractor.get_pdf_path()
 if extract_pdf_path is not None:
     rules = rule_extractor.extract_rules_from_pdf(extract_pdf_path)
 
-    # Speichere die erfassten Regeln im JSON-Format
     with open('rules.json', 'w', encoding='utf-8') as f:
         json.dump(rule_extractor.rules, f, ensure_ascii=False, indent=4)
 
