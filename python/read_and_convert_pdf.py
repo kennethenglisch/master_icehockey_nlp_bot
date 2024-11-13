@@ -138,20 +138,9 @@ class RuleExtractor:
                                     font_color = span["color"]
                                     font = span["font"]
 
-                                    if "36" in text:
-                                        print(text)
-
-                                    if "10.2." in text:
-                                        print(text)
-
-                                    if "10.3." in text:
-                                        print(text)
-
-                                    if "10.4." in text:
-                                        print(text)
-
-                                    if "10.5." in text:
-                                        print(text)
+                                    # todo: text between rule references
+                                    # if "and" == text and self.current_subrule_number == "9.12.":
+                                    #     print(span)
 
                                     if font_size < self.get_smallest_font_size():
                                         continue
@@ -222,7 +211,7 @@ class RuleExtractor:
                                             anything_found = True
 
                                     if not anything_found:
-                                        rule_reference_result = self.check_and_clean_rule_reference(text, font_size, font_color, font)
+                                        rule_reference_result = self.check_and_clean_rule_reference(text, font_size, font_color, font, current_subrule)
                                         if rule_reference_result["status"]:
                                             self.current_rule_reference = rule_reference_result["text"]
                                             anything_found = True
@@ -462,7 +451,11 @@ class RuleExtractor:
         is_rule_text = font_size == self.rule_text_font_size and font_color == self.rule_text_font_color and self.rule_text_font == font_family
         is_rule_text_alternative_font_size = self.rule_text_font_size_alternative == font_size
         is_rule_text_headline = font_size == self.rule_text_headline_font_size and font_color == self.rule_text_headline_font_color and self.rule_text_headline_font == font_family
-        if not (is_rule_text or is_rule_text_alternative_font_size) and not is_rule_text_headline:
+
+        # check for text in between rule references
+        is_text_between_rule_references = font_size == self.rule_reference_text_font_size and font_color == self.rule_text_font_color and font_family == self.rule_text_font
+
+        if not (is_rule_text or is_rule_text_alternative_font_size) and not is_rule_text_headline and not is_text_between_rule_references:
             return {"status": False, "text": None}
 
         rule_text = current_rule_text + " " + stripped_text
@@ -482,7 +475,7 @@ class RuleExtractor:
 
         return {"status": False, "text": None}
 
-    def check_and_clean_rule_reference(self, text, font_size, font_color, font_family):
+    def check_and_clean_rule_reference(self, text, font_size, font_color, font_family, current_subrule):
         # strip text for white spaces
         stripped_text = text.strip()
 
@@ -493,6 +486,13 @@ class RuleExtractor:
         if is_font_size and is_font_color and is_font_family:
             match = re.search(r"Rule \d{1,3}(\.\d{1,2})*\.?\s*[-–]", stripped_text)
             if match:
+                # add placeholder for rule reference to rule text
+                rule_reference_index = 0
+                if current_subrule["rule_reference"] is not None:
+                    rule_reference_index = len(current_subrule["rule_reference"])
+
+                self.current_rule_text += " {rule_reference_" + str(rule_reference_index) + "}"
+
                 return {"status": True, "text": stripped_text.rstrip(".")}
 
         return {"status": False, "text": None}
