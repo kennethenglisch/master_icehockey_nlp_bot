@@ -24,23 +24,27 @@ class RuleExtractor:
         self.section_name_font = "RobotoCondensed-Light"
 
         # rule headline: font-size=11.0, font-color=21407, font=RobotoCondensed-Regular, example=RULE 1
-        self.rule_headline_font_size = 11.0
+        #self.rule_headline_font_size = 11.0
+        self.rule_headline_font_sizes = [11.0, 10.754817008972168]
         self.rule_headline_font_color = 21407
         self.rule_headline_font = "RobotoCondensed-Regular"
 
         # subrule headline: font-size=11.0, font-color=21407, font=RobotoCondensed-Regular, example=1.1.
         # font size can also be: 11.109999656677246
-        self.subrule_headline_font_size = 11.0
-        self.subrule_headline_font_size_alternative = 11.109999656677246
+        #self.subrule_headline_font_size = 11.0
+        #self.subrule_headline_font_size_alternative = 11.109999656677246
+        self.subrule_headline_font_sizes = [11.0, 11.109999656677246, 10.754817008972168]
         self.subrule_headline_font_color = 21407
         self.subrule_headline_font = "RobotoCondensed-Regular"
 
         # rules text: font-size=9.92471694946289, font-color=0, font=RobotoCondensed-Light, example=Games under jurisdiction of the IIHF...
         # font size can also be: 10.023963928222656
-        self.rule_text_font_size = 9.92471694946289
-        self.rule_text_font_size_alternative = 10.023963928222656
+        # self.rule_text_font_size = 9.92471694946289
+        # self.rule_text_font_size_alternative = 10.023963928222656
+        self.rule_text_font_sizes = [9.92471694946289, 10.023963928222656, 9.703460693359375]
         self.rule_text_font_color = 0
-        self.rule_text_font = "RobotoCondensed-Light"
+        #self.rule_text_font = "RobotoCondensed-Light"
+        self.rule_text_fonts = ["RobotoCondensed-Light", "RobotoCondensed-Regular"] # regular für römische Ziffern
 
         # rules text headlines: font-size=10.0, font-color=0, font=RobotoCondensed-Light, example=Games under jurisdiction of the IIHF...
         self.rule_text_headline_font_size = 10.0
@@ -48,16 +52,19 @@ class RuleExtractor:
         self.rule_text_headline_font = "RobotoCondensed-Regular"
 
         # appendix text: font-size=9.75, font-color=21407, font=RobotoCondensed-Regular, example=For more information refer to Appendix VI – Infographics.
-        self.appendix_text_font_size = 9.75
+        #self.appendix_text_font_size = 9.75
+        self.appendix_text_font_sizes = [9.75, 10.100000381469727]
         self.appendix_text_font_color = 21407
         self.appendix_text_font = "RobotoCondensed-Regular"
 
         # appendix text: font-size=9.75, font-color=21407, font=RobotoCondensed-Regular, example=For more information refer to Appendix VI – Infographics.
-        self.rule_reference_text_font_size = 9.75
-        self.rule_reference_text_font_size_alternative = 10.100000381469727
+        # self.rule_reference_text_font_size = 9.75
+        # self.rule_reference_text_font_size_alternative = 10.100000381469727
+        self.rule_reference_text_font_sizes = [9.75, 10.100000381469727, 9.53267765045166, 9.676623344421387, 9.848857879638672, 9.92471694946289]
         self.rule_reference_text_font_color = 21407
         self.rule_reference_text_font_color_alternative = 2251163
-        self.rule_reference_text_font = "RobotoCondensed-Regular"
+        # self.rule_reference_text_font = "RobotoCondensed-Regular"
+        self.rule_reference_text_fonts = ["RobotoCondensed-Regular", "RobotoCondensed-Light"]
 
         # temp vars for rule creation
         self.current_page_number = 0
@@ -79,36 +86,71 @@ class RuleExtractor:
         self.old_subrule_name = None
 
     def get_smallest_font_size(self):
-        font_sizes = [
+        font_sizes = {
             self.page_number_font_size,
             self.section_number_font_size,
             self.section_name_font_size,
-            self.rule_headline_font_size,
-            self.subrule_headline_font_size,
-            self.rule_text_font_size,
-            self.appendix_text_font_size,
-            self.subrule_headline_font_size_alternative,
-            self.rule_text_font_size_alternative,
-            self.rule_reference_text_font_size_alternative
-        ]
+        }
+
+        for size in self.rule_text_font_sizes:
+            font_sizes.add(size)
+
+        for size in self.rule_headline_font_sizes:
+            font_sizes.add(size)
+
+        for size in self.subrule_headline_font_sizes:
+            font_sizes.add(size)
+
+        for size in self.rule_reference_text_font_sizes:
+            font_sizes.add(size)
+
+        for sizes in self.appendix_text_font_sizes:
+            font_sizes.add(sizes)
 
         return min(font_sizes)
 
+    def get_greatest_font_size(self):
+        font_sizes = {
+            self.page_number_font_size,
+            self.section_number_font_size,
+            self.section_name_font_size,
+        }
+
+        for size in self.rule_text_font_sizes:
+            font_sizes.add(size)
+
+        for size in self.rule_headline_font_sizes:
+            font_sizes.add(size)
+
+        for size in self.subrule_headline_font_sizes:
+            font_sizes.add(size)
+
+        for size in self.rule_reference_text_font_sizes:
+            font_sizes.add(size)
+
+        for sizes in self.appendix_text_font_sizes:
+            font_sizes.add(sizes)
+
+        return max(font_sizes)
+
     @staticmethod
     def get_pdf_path():
-        pdf_path = input("Bitte geben Sie den Pfad zu Ihrem Regelbuch (PDF) ein oder wählen Sie eine der folgenden Optionen\nEnter oder 1 - rulebook_one_page_test.pdf\n2 - rulebook_three_page_test.pdf\n3 - rulebook_two_sections_test.pdf\n4 - rulebook_three_sections_test.pdf: ")
+        pdf_path = input("Bitte geben Sie den Pfad zu Ihrem Regelbuch (PDF) ein oder wählen Sie eine der folgenden Optionen\n1 - rulebook_one_page_test.pdf\n2 - rulebook_three_page_test.pdf\n3 - rulebook_two_sections_test.pdf\n4 - rulebook_three_sections_test.pdf\nEnter oder 5 - 2024_iihf_rulebook_24052024_v1.pdf\n----------------\nDeine Auswahl: ")
 
-        if pdf_path == "" or pdf_path == "1":
-            pdf_path = "../rulebook_one_page_test.pdf"
+        if pdf_path == "1":
+            pdf_path = "rulebook_one_page_test.pdf"
 
         if pdf_path == "2":
-            pdf_path = "../rulebook_three_page_test.pdf"
+            pdf_path = "rulebook_three_page_test.pdf"
 
         if pdf_path == "3":
-            pdf_path = "../rulebook_two_sections_test.pdf"
+            pdf_path = "rulebook_two_sections_test.pdf"
 
         if pdf_path == "4":
-            pdf_path = "../rulebook_three_sections_test.pdf"
+            pdf_path = "rulebook_three_sections_test.pdf"
+
+        if pdf_path == "" or pdf_path == "5":
+            pdf_path = "2024_iihf_rulebook_24052024_v1.pdf"
 
         if not os.path.isfile(pdf_path):
             print("Der angegebene Pfad ist ungültig. Bitte überprüfen Sie den Pfad und versuchen Sie es erneut.")
@@ -125,9 +167,9 @@ class RuleExtractor:
 
         with fitz.open(pdf_path) as pdf:
             for page in pdf:
-                for text in page.get_text("dict", None, None, None, True)["blocks"]:
-                    if "lines" in text:
-                        for line in text["lines"]:
+                for page_text in page.get_text("dict", None, None, None, True)["blocks"]:
+                    if "lines" in page_text:
+                        for line in page_text["lines"]:
                             if self.is_horizontal_text(self, line["dir"]):
                                 for span in line["spans"]:
 
@@ -138,12 +180,11 @@ class RuleExtractor:
                                     font_color = span["color"]
                                     font = span["font"]
 
-                                    # todo: text between rule references
-                                    # if "and" == text and self.current_subrule_number == "9.12.":
-                                    #     print(span)
-
-                                    if font_size < self.get_smallest_font_size():
+                                    if font_size < self.get_smallest_font_size() or font_size > self.get_greatest_font_size():
                                         continue
+
+                                    # if self.current_page_number == 62:
+                                    #     print(span)
 
                                     if not anything_found:
                                         # check for page number
@@ -227,8 +268,13 @@ class RuleExtractor:
                                         # check for new section
                                         if section_number_result["status"] and self.current_section_number != self.old_section_number:
                                             if current_section:
-                                                if current_rule and current_subrule:
-                                                    current_rule = self.add_subrule_if_needed(current_rule, current_subrule)
+                                                if current_rule:
+                                                    if current_subrule:
+                                                        current_rule = self.add_subrule_if_needed(current_rule, current_subrule)
+                                                    else:
+                                                        if current_rule["rule_text"] == "" or current_rule["rule_text"] is None:
+                                                            current_rule["rule_text"] = self.current_rule_text
+
                                                     current_section = self.add_rule_if_needed(current_section, current_rule)
                                                 self.rules.append(current_section)
                                                 current_rule = []
@@ -273,7 +319,9 @@ class RuleExtractor:
                                                 "rule_number": self.current_rule_number,
                                                 "rule_name": None,
                                                 "rule_text": None,
-                                                "subrules": []
+                                                "appendix_information": None,
+                                                "rule_reference": None,
+                                                "subrules": [],
                                             }
 
                                         if rule_name_result["status"] and self.current_rule_name != self.old_rule_name:
@@ -304,11 +352,16 @@ class RuleExtractor:
 
                                         if subrule_name_result["status"] and self.current_subrule_name != self.old_subrule_name:
                                             # add subrule name
+                                            #print(current_subrule)
                                             current_subrule["subrule_name"] = self.current_subrule_name
 
                                         if additional_info_result["status"] and self.current_appendix_information is not None:
-                                            # add appendix result to subrule
-                                            current_subrule["appendix_information"] = self.add_appendix_information_to_subrule(current_subrule)
+                                            # add appendix result to subrule or rule
+                                            if not current_subrule:
+                                                current_rule["appendix_information"] = self.add_appendix_information_to_subrule(current_rule)
+                                            else:
+                                                current_subrule["appendix_information"] = self.add_appendix_information_to_subrule(current_subrule)
+
                                             self.current_appendix_information = None
 
                                         if rule_reference_result["status"] and self.current_rule_reference is not None:
@@ -316,14 +369,19 @@ class RuleExtractor:
                                             current_subrule["rule_reference"] = self.add_rule_reference_to_subrule(current_subrule)
                                             self.current_rule_reference = None
 
-        if current_section and current_rule and current_subrule:
-            if current_subrule["rule_text"] == "" or current_subrule["rule_text"] is None:
-                current_subrule["rule_text"] = self.current_rule_text
+        if current_section and current_rule:
+            if current_subrule:
+                if current_subrule["rule_text"] == "" or current_subrule["rule_text"] is None:
+                    current_subrule["rule_text"] = self.current_rule_text
 
-            current_subrule["appendix_information"] = self.add_appendix_information_to_subrule(current_subrule)
-            current_subrule["rule_reference"] = self.add_rule_reference_to_subrule(current_subrule, True)
+                current_subrule["appendix_information"] = self.add_appendix_information_to_subrule(current_subrule)
+                current_subrule["rule_reference"] = self.add_rule_reference_to_subrule(current_subrule, True)
 
-            current_rule = self.add_subrule_if_needed(current_rule, current_subrule)
+                current_rule = self.add_subrule_if_needed(current_rule, current_subrule)
+            else:
+                if current_rule["rule_text"] == "" or current_rule["rule_text"] is None:
+                    current_rule["rule_text"] = self.current_rule_text
+
             current_section = self.add_rule_if_needed(current_section, current_rule)
             self.rules.append(current_section)
 
@@ -335,6 +393,15 @@ class RuleExtractor:
             return True
 
         return False
+
+    def has_found_section(self):
+        return self.current_section_number is not None
+
+    def has_found_rule(self):
+        return self.current_rule_number != 0
+
+    def has_found_subrule(self):
+        return self.current_subrule_number != 0
 
     def check_and_clean_page_number(self, text, font_size, font_color, font_family):
         # strip text for white spaces
@@ -369,6 +436,9 @@ class RuleExtractor:
         # strip text for white spaces
         stripped_text = text.strip()
 
+        if not self.has_found_section():
+            return {"status": False, "name": None}
+
         # check for matching font-size, color and family
         if font_size != self.section_name_font_size or font_color != self.section_name_font_color or self.section_name_font != font_family:
             return {"status": False, "name": None}
@@ -383,7 +453,7 @@ class RuleExtractor:
         stripped_text = text.strip()
 
         # check for matching font-size, color and family
-        if font_size != self.rule_headline_font_size or font_color != self.rule_headline_font_color or self.rule_headline_font != font_family:
+        if font_size not in self.rule_headline_font_sizes or font_color != self.rule_headline_font_color or self.rule_headline_font != font_family:
             return {"status": False, "num": None}
 
         if "RULE" in stripped_text and stripped_text.isupper():
@@ -403,7 +473,7 @@ class RuleExtractor:
         stripped_text = text.strip()
 
         # check for matching font-size, color and family
-        if font_size != self.rule_headline_font_size or font_color != self.rule_headline_font_color or self.rule_headline_font != font_family:
+        if font_size not in self.rule_headline_font_sizes or font_color != self.rule_headline_font_color or self.rule_headline_font != font_family:
             return {"status": False, "name": None}
 
         if stripped_text.isupper() and last_span:
@@ -419,7 +489,7 @@ class RuleExtractor:
         stripped_text = text.strip()
 
         # check for matching font-size, color and family
-        if (font_size != self.subrule_headline_font_size and font_size != self.subrule_headline_font_size_alternative) or font_color != self.subrule_headline_font_color or self.subrule_headline_font != font_family:
+        if font_size not in self.subrule_headline_font_sizes or font_color != self.subrule_headline_font_color or self.subrule_headline_font != font_family:
             return {"status": False, "num": None}
 
         if re.fullmatch("^\d{1,3}\.\d{1,2}(\.\d{1,2})?\.?$", stripped_text):
@@ -432,7 +502,7 @@ class RuleExtractor:
         stripped_text = text.strip()
 
         # check for matching font-size, color and family
-        if (font_size != self.subrule_headline_font_size and font_size != self.subrule_headline_font_size_alternative) or font_color != self.subrule_headline_font_color or self.subrule_headline_font != font_family:
+        if font_size not in self.subrule_headline_font_sizes or font_color != self.subrule_headline_font_color or self.subrule_headline_font != font_family:
             return {"status": False, "name": None}
 
         if stripped_text.isupper() and last_span:
@@ -448,52 +518,94 @@ class RuleExtractor:
         stripped_text = text.strip()
 
         # check for matching font-size, color and family
-        is_rule_text = font_size == self.rule_text_font_size and font_color == self.rule_text_font_color and self.rule_text_font == font_family
-        is_rule_text_alternative_font_size = self.rule_text_font_size_alternative == font_size
+        is_rule_text = font_size in self.rule_text_font_sizes and font_color == self.rule_text_font_color and font_family in self.rule_text_fonts
         is_rule_text_headline = font_size == self.rule_text_headline_font_size and font_color == self.rule_text_headline_font_color and self.rule_text_headline_font == font_family
 
         # check for text in between rule references
-        is_text_between_rule_references = font_size == self.rule_reference_text_font_size and font_color == self.rule_text_font_color and font_family == self.rule_text_font
+        is_text_between_rule_references = font_size in self.rule_reference_text_font_sizes and font_color == self.rule_text_font_color and font_family in self.rule_text_fonts
 
-        if not (is_rule_text or is_rule_text_alternative_font_size) and not is_rule_text_headline and not is_text_between_rule_references:
+        if not is_rule_text and not is_rule_text_headline and not is_text_between_rule_references:
             return {"status": False, "text": None}
 
-        rule_text = current_rule_text + " " + stripped_text
+        if stripped_text.startswith(")"):
+            rule_text = current_rule_text + stripped_text
+        else:
+            rule_text = current_rule_text + " " + stripped_text
+
         return {"status": True, "text": rule_text.strip()}
 
     def check_and_clean_appendix_information(self, text, font_size, font_color, font_family):
         # strip text for white spaces
         stripped_text = text.strip()
 
+        # if not self.has_found_rule():
+        #     return {"status": False, "name": None}
+
         # check for matching font-size, color and family
-        if font_size != self.appendix_text_font_size or font_color != self.appendix_text_font_color or self.appendix_text_font != font_family:
+        if font_size not in self.appendix_text_font_sizes or font_color != self.appendix_text_font_color or self.appendix_text_font != font_family:
             return {"status": False, "text": None}
 
-        match = re.search(r"For more information refer to Appendix (.*?)(?:\.|$)", stripped_text)
+        match = re.search(r"refer to Appendix (.*?)(?:\.|$)", stripped_text)
         if match:
             return {"status": True, "text": match.group(1).strip()}
 
         return {"status": False, "text": None}
 
     def check_and_clean_rule_reference(self, text, font_size, font_color, font_family, current_subrule):
-        # strip text for white spaces
-        stripped_text = text.strip()
+        # strip text for white spaces, remove quotation marks and commas
+        stripped_text = text.strip().replace("\"", "").rstrip(",")
 
         # check for matching font-size, color and family
-        is_font_size = font_size == self.rule_reference_text_font_size or font_size == self.rule_reference_text_font_size_alternative
+        is_font_size = font_size in self.rule_reference_text_font_sizes
         is_font_color = font_color == self.rule_reference_text_font_color or font_color == self.rule_reference_text_font_color_alternative
-        is_font_family = font_family == self.rule_reference_text_font
-        if is_font_size and is_font_color and is_font_family:
-            match = re.search(r"Rule \d{1,3}(\.\d{1,2})*\.?\s*[-–]", stripped_text)
-            if match:
-                # add placeholder for rule reference to rule text
-                rule_reference_index = 0
-                if current_subrule["rule_reference"] is not None:
-                    rule_reference_index = len(current_subrule["rule_reference"])
+        is_font_family = font_family in self.rule_reference_text_fonts
 
-                self.current_rule_text += " {rule_reference_" + str(rule_reference_index) + "}"
+        if stripped_text != "" and is_font_size and is_font_color and is_font_family:
+            # match = re.search(r"Rule \d{1,3}(\.\d{1,2})*\.?\s*[-–]", stripped_text)
+            match = re.search(r"Rules? \d{1,3}(\.\d{1,2})*\.?\s*([-–]\s*.+)?", stripped_text)
+            if match:
+                # # add placeholder for rule reference to rule text
+                # rule_reference_index = 0
+                #
+                # if current_subrule["rule_reference"] is not None:
+                #     rule_reference_index = len(current_subrule["rule_reference"])
+                #
+                # self.current_rule_text += " {rule_reference_" + str(rule_reference_index) + "}"
+
+                if stripped_text.startswith("Rules"):
+                    stripped_text = stripped_text.replace("Rules", "Rule", 1)
 
                 return {"status": True, "text": stripped_text.rstrip(".")}
+            else:
+                if self.has_found_section():
+                    # add this part to the last one and later check if they start the same and overwrite them in rule_reference
+                    # todo: hier weiter gucken nach fehlenden sachen
+                    # if "Too many Players on the ice." in text:
+                    #     print(stripped_text, self.current_page_number)
+                    #     print(font_size)
+                    #     print(font_color)
+                    #     print(font_family)
+                    # if "Abuse of Officials." in stripped_text:
+                    if stripped_text != "–" and stripped_text != "-":
+                        if current_subrule and current_subrule["rule_reference"]:
+                            #print(stripped_text)
+                            reference = current_subrule["rule_reference"][len(current_subrule["rule_reference"]) - 1]
+                            # print("old:", reference.rstrip("."))
+                            if "-" in reference or "–" in reference:
+                                if reference.endswith(" "):
+                                    reference += stripped_text
+                                else:
+                                    reference += " " + stripped_text
+                            else:
+                                if reference.endswith(" "):
+                                    reference += "– " + stripped_text
+                                else:
+                                    reference += " – " + stripped_text
+
+                            current_subrule["rule_reference"][len(current_subrule["rule_reference"]) - 1] = reference.rstrip(".")
+                            # print("new:", reference.rstrip("."))
+                        else:
+                            print("ERROR:",stripped_text, self.current_page_number)
 
         return {"status": False, "text": None}
 
@@ -525,15 +637,25 @@ class RuleExtractor:
             return [self.current_rule_reference]
 
         found = False
-        for reference in current_subrule["rule_reference"]:
-            if reference == self.current_rule_reference:
+        rule_reference_index = 0
+        for index, reference in enumerate(current_subrule["rule_reference"]):
+            if reference == self.current_rule_reference or reference.split("–")[0].strip() == self.current_rule_reference.split("–")[0].strip():
                 found = True
+                rule_reference_index = index
                 break
 
         if not found:
             current_subrule_rule_reference = current_subrule["rule_reference"]
             current_subrule_rule_reference.append(self.current_rule_reference)
+
+            # add placeholder for rule reference to rule text
+            rule_reference_index = len(current_subrule_rule_reference)
+            self.current_rule_text += " {rule_reference_" + str(rule_reference_index) + "}"
+
             return current_subrule_rule_reference
+        else:
+            # add placeholder for rule reference to rule text
+            self.current_rule_text += " {rule_reference_" + str(rule_reference_index) + "}"
 
         return current_subrule["rule_reference"]
 
