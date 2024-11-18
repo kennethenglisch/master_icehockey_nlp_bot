@@ -3,7 +3,8 @@ import fitz
 import json
 import re
 
-# todo: look at roman numbers (I, II, III, IV, V, etc.)
+# todo: maybe highlight bold text with <b> or something else
+# todo: check for dashes ("-") in words if they are broken because of line changes
 class RuleExtractor:
     def __init__(self):
         self.rules = []
@@ -24,26 +25,19 @@ class RuleExtractor:
         self.section_name_font = "RobotoCondensed-Light"
 
         # rule headline: font-size=11.0, font-color=21407, font=RobotoCondensed-Regular, example=RULE 1
-        #self.rule_headline_font_size = 11.0
         self.rule_headline_font_sizes = [11.0, 10.754817008972168]
         self.rule_headline_font_color = 21407
         self.rule_headline_font = "RobotoCondensed-Regular"
 
         # subrule headline: font-size=11.0, font-color=21407, font=RobotoCondensed-Regular, example=1.1.
         # font size can also be: 11.109999656677246
-        #self.subrule_headline_font_size = 11.0
-        #self.subrule_headline_font_size_alternative = 11.109999656677246
         self.subrule_headline_font_sizes = [11.0, 11.109999656677246, 10.754817008972168]
         self.subrule_headline_font_color = 21407
         self.subrule_headline_font = "RobotoCondensed-Regular"
 
         # rules text: font-size=9.92471694946289, font-color=0, font=RobotoCondensed-Light, example=Games under jurisdiction of the IIHF...
-        # font size can also be: 10.023963928222656
-        # self.rule_text_font_size = 9.92471694946289
-        # self.rule_text_font_size_alternative = 10.023963928222656
         self.rule_text_font_sizes = [9.92471694946289, 10.023963928222656, 9.703460693359375]
         self.rule_text_font_color = 0
-        #self.rule_text_font = "RobotoCondensed-Light"
         self.rule_text_fonts = ["RobotoCondensed-Light", "RobotoCondensed-Regular"] # regular für römische Ziffern
 
         # rules text headlines: font-size=10.0, font-color=0, font=RobotoCondensed-Light, example=Games under jurisdiction of the IIHF...
@@ -52,18 +46,14 @@ class RuleExtractor:
         self.rule_text_headline_font = "RobotoCondensed-Regular"
 
         # appendix text: font-size=9.75, font-color=21407, font=RobotoCondensed-Regular, example=For more information refer to Appendix VI – Infographics.
-        #self.appendix_text_font_size = 9.75
         self.appendix_text_font_sizes = [9.75, 10.100000381469727]
         self.appendix_text_font_color = 21407
         self.appendix_text_font = "RobotoCondensed-Regular"
 
         # appendix text: font-size=9.75, font-color=21407, font=RobotoCondensed-Regular, example=For more information refer to Appendix VI – Infographics.
-        # self.rule_reference_text_font_size = 9.75
-        # self.rule_reference_text_font_size_alternative = 10.100000381469727
         self.rule_reference_text_font_sizes = [9.75, 10.100000381469727, 9.53267765045166, 9.676623344421387, 9.848857879638672, 9.92471694946289]
         self.rule_reference_text_font_color = 21407
         self.rule_reference_text_font_color_alternative = 2251163
-        # self.rule_reference_text_font = "RobotoCondensed-Regular"
         self.rule_reference_text_fonts = ["RobotoCondensed-Regular", "RobotoCondensed-Light"]
 
         # temp vars for rule creation
@@ -159,6 +149,7 @@ class RuleExtractor:
         return pdf_path
 
     def extract_rules_from_pdf(self, pdf_path):
+        break_all = False
         last_span = None
 
         current_section = []
@@ -183,7 +174,15 @@ class RuleExtractor:
                                     if font_size < self.get_smallest_font_size() or font_size > self.get_greatest_font_size():
                                         continue
 
-                                    # if self.current_page_number == 62:
+                                    # if we have found an "APPENDIX" that is a section, we can skip every page from now on and finish the extracting
+                                    if "APPENDIX" in text and self.has_found_section():
+                                        result = self.check_and_clean_section_number(text, font_size, font_color,font)
+                                        if not result["status"] and "appendix" in result and result["appendix"]:
+                                            break_all = True
+                                            break
+
+                                    # if "JUNIOR ICE HOCKEY" in text and self.current_page_number == 151:
+                                    #     print("--------------------------")
                                     #     print(span)
 
                                     if not anything_found:
@@ -261,9 +260,6 @@ class RuleExtractor:
 
                                     # check if we got a new rule or subrule
                                     if anything_found:
-                                        # if self.current_rule_number == 0 or self.current_subrule_number == 0:
-                                        #     continue
-
                                         # todo: new structure as in test.json
                                         # check for new section
                                         if section_number_result["status"] and self.current_section_number != self.old_section_number:
@@ -340,6 +336,9 @@ class RuleExtractor:
                                                 current_rule["subrules"].append(current_subrule)
                                                 current_subrule = []
 
+                                            if self.current_rule_text:
+                                                self.current_rule_text = ""
+
                                             # create subrule and build structure
                                             current_subrule = {
                                                 "page": self.current_page_number,
@@ -352,8 +351,13 @@ class RuleExtractor:
 
                                         if subrule_name_result["status"] and self.current_subrule_name != self.old_subrule_name:
                                             # add subrule name
-                                            #print(current_subrule)
-                                            current_subrule["subrule_name"] = self.current_subrule_name
+                                            if current_subrule:
+                                                if current_subrule["subrule_name"] is None:
+                                                    current_subrule["subrule_name"] = self.current_subrule_name
+                                                else:
+                                                    current_subrule["subrule_name"] += " " + str(self.current_subrule_name)
+                                            else:
+                                                print("Error: no current_subrule", self.current_subrule_name, self.current_page_number)
 
                                         if additional_info_result["status"] and self.current_appendix_information is not None:
                                             # add appendix result to subrule or rule
@@ -368,6 +372,15 @@ class RuleExtractor:
                                             # add rule reference to subrule
                                             current_subrule["rule_reference"] = self.add_rule_reference_to_subrule(current_subrule)
                                             self.current_rule_reference = None
+
+                            if break_all:
+                                break
+
+                    if break_all:
+                        break
+
+                if break_all:
+                    break
 
         if current_section and current_rule:
             if current_subrule:
@@ -430,6 +443,9 @@ class RuleExtractor:
         if "SECTION" in stripped_text and stripped_text.isupper():
             return {"status": True, "section": stripped_text}
 
+        if "APPENDIX" in stripped_text and stripped_text.isupper():
+            return {"status": False, "appendix": True}
+
         return {"status": False, "section": None}
 
     def check_and_clean_section_name(self, text, font_size, font_color, font_family):
@@ -456,16 +472,16 @@ class RuleExtractor:
         if font_size not in self.rule_headline_font_sizes or font_color != self.rule_headline_font_color or self.rule_headline_font != font_family:
             return {"status": False, "num": None}
 
-        if "RULE" in stripped_text and stripped_text.isupper():
-            # convert only number (everything after "RULE")
-            # try to convert to integer
-            try:
-                num = int(stripped_text.split("RULE")[1])
+        try:
+            # convert only number (after "RULE")
+            match = re.search(r"RULE\s*(\d+)", stripped_text, re.IGNORECASE)
+            if match:
+                num = int(match.group(1)) # cast to int
                 return {"status": True, "num": num}
-            except ValueError:
+            else:
                 return {"status": False, "num": None}
-
-        return {"status": False, "num": None}
+        except ValueError:
+            return {"status": False, "num": None}
 
     # re.fullmatch("^(RULE \d{1,3}|\d{1,3}\.\d{1,2}(\.\d{1,2})?)$", stripped_text)
     def check_and_clean_rule_name(self, text, font_size, font_color, font_family, last_span):
@@ -507,8 +523,10 @@ class RuleExtractor:
 
         if stripped_text.isupper() and last_span:
             # check last span
-            result = self.check_and_clean_subrule_number(last_span["text"], last_span["size"], last_span["color"], last_span["font"])
-            if result["status"]:
+            subrule_number_before = self.check_and_clean_subrule_number(last_span["text"], last_span["size"], last_span["color"], last_span["font"])
+            subrule_name_not_finished = last_span["text"].endswith(" ")
+
+            if subrule_number_before["status"] or subrule_name_not_finished:
                 return {"status": True, "name": stripped_text}
 
         return {"status": False, "name": None}
@@ -564,14 +582,6 @@ class RuleExtractor:
             # match = re.search(r"Rule \d{1,3}(\.\d{1,2})*\.?\s*[-–]", stripped_text)
             match = re.search(r"Rules? \d{1,3}(\.\d{1,2})*\.?\s*([-–]\s*.+)?", stripped_text)
             if match:
-                # # add placeholder for rule reference to rule text
-                # rule_reference_index = 0
-                #
-                # if current_subrule["rule_reference"] is not None:
-                #     rule_reference_index = len(current_subrule["rule_reference"])
-                #
-                # self.current_rule_text += " {rule_reference_" + str(rule_reference_index) + "}"
-
                 if stripped_text.startswith("Rules"):
                     stripped_text = stripped_text.replace("Rules", "Rule", 1)
 
@@ -579,31 +589,32 @@ class RuleExtractor:
             else:
                 if self.has_found_section():
                     # add this part to the last one and later check if they start the same and overwrite them in rule_reference
-                    # todo: hier weiter gucken nach fehlenden sachen
-                    # if "Too many Players on the ice." in text:
-                    #     print(stripped_text, self.current_page_number)
-                    #     print(font_size)
-                    #     print(font_color)
-                    #     print(font_family)
-                    # if "Abuse of Officials." in stripped_text:
                     if stripped_text != "–" and stripped_text != "-":
+                        if stripped_text == "Rule":
+                            return {"status": True, "text": stripped_text}
+
                         if current_subrule and current_subrule["rule_reference"]:
-                            #print(stripped_text)
                             reference = current_subrule["rule_reference"][len(current_subrule["rule_reference"]) - 1]
-                            # print("old:", reference.rstrip("."))
                             if "-" in reference or "–" in reference:
                                 if reference.endswith(" "):
                                     reference += stripped_text
                                 else:
                                     reference += " " + stripped_text
                             else:
-                                if reference.endswith(" "):
-                                    reference += "– " + stripped_text
+                                if stripped_text[0].isdigit():
+                                    if reference.endswith(" "):
+                                        reference += stripped_text
+                                    else:
+                                        reference += " " + stripped_text
                                 else:
-                                    reference += " – " + stripped_text
+                                    if reference.endswith(" "):
+                                        reference += "– " + stripped_text
+                                    else:
+                                        reference += " – " + stripped_text
 
+                            # remove hyphenation
+                            reference = re.sub(r"([a-zA-Z])-\s*([a-zA-Z])", r"\1\2", reference)
                             current_subrule["rule_reference"][len(current_subrule["rule_reference"]) - 1] = reference.rstrip(".")
-                            # print("new:", reference.rstrip("."))
                         else:
                             print("ERROR:",stripped_text, self.current_page_number)
 
@@ -634,6 +645,7 @@ class RuleExtractor:
             return current_subrule["rule_reference"]
 
         if current_subrule["rule_reference"] is None:
+            self.current_rule_text += " {rule_reference_0}" # add rule reference placeholder also for first reference
             return [self.current_rule_reference]
 
         found = False
@@ -649,7 +661,7 @@ class RuleExtractor:
             current_subrule_rule_reference.append(self.current_rule_reference)
 
             # add placeholder for rule reference to rule text
-            rule_reference_index = len(current_subrule_rule_reference)
+            rule_reference_index = len(current_subrule_rule_reference) - 1
             self.current_rule_text += " {rule_reference_" + str(rule_reference_index) + "}"
 
             return current_subrule_rule_reference

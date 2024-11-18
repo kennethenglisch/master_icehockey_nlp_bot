@@ -1,56 +1,54 @@
-{
-	"rules": [
-		{
-			"section_number": "SECTION 01",
-			"section_name": "PLAYING AREA",
-			"section_rules": [
-				{
-					"rule_number": 1,
-					"rule_name": "RINK",
-					"subrules": [
-						{
-							"page": 17,
-							"subrule_number": "1.1.",
-							"subrule_name": "RINK",
-							"rule_text": "Games under jurisdiction of the IIHF shall be played on an ice surface known as the “Rink” and must adhere to the dimensions and specifications prescribed by the IIHF and these rules. No ice markings shall be permitted except those provided for under these rules unless express written permission has been obtained from the IIHF. On-ice logos must not interfere with any official ice markings provided for the proper playing of the game. In the interval between periods, the ice surface shall be flooded unless mutually agreed to the contrary.",
-                			"appendix_information": null
-						},
-						{
-							"page": 17,
-							"subrule_number": "1.2.",
-			                "subrule_name": "DIMENSIONS",
-			                "rule_text": "The official size of the Rink shall be 60 m long and 26 m to 30 m wide. The corners shall be rounded in the arc of a circle with a radius of 7.0 m to 8.50 m. Any deviations from these dimensions for any IIHF competition require IIHF approval.",
-			                "appendix_information": "VI – Infographics"
-						}
-					]
-				}
-			]
-		},
-		{
-			"section_number": "SECTION 02",
-			"section_name": "TEAMS",
-			"section_rules": [
-				{
-					"rule_number": 5,
-					"rule_name": "TEAM",
-					"subrules": [
-						{
-							"page": 25,
-							"subrule_number": "5.1.",
-							"subrule_name": "ELIGIBLE PLAYERS",
-							"rule_text": "Lorem ipsum.",
-                			"appendix_information": null
-						},
-						{
-							"page": 25,
-							"subrule_number": "5.2.",
-			                "subrule_name": "INELIGIBLE PLAYER",
-			                "rule_text": "Lorem ipsum.",
-                			"appendix_information": null
-						}
-					]
-				}
-			]
-		},
-	]
-}
+[
+	{
+		"section_number": "SECTION 01",
+		"section_name": "PLAYING AREA",
+		"section_rules": [
+			{
+				"rule_number": 1,
+				"rule_name": "RINK",
+				"subrules": [
+					{
+						"page": 17,
+						"subrule_number": "1.1.",
+						"subrule_name": "RINK",
+						"rule_text": "Games under jurisdiction of the IIHF shall be played on an ice surface known as the “Rink” and must adhere to the dimensions and specifications prescribed by the IIHF and these rules. No ice markings shall be permitted except those provided for under these rules unless express written permission has been obtained from the IIHF. On-ice logos must not interfere with any official ice markings provided for the proper playing of the game. In the interval between periods, the ice surface shall be flooded unless mutually agreed to the contrary.",
+						"appendix_information": null
+					},
+					{
+						"page": 17,
+						"subrule_number": "1.2.",
+						"subrule_name": "DIMENSIONS",
+						"rule_text": "The official size of the Rink shall be 60 m long and 26 m to 30 m wide. The corners shall be rounded in the arc of a circle with a radius of 7.0 m to 8.50 m. Any deviations from these dimensions for any IIHF competition require IIHF approval.",
+						"appendix_information": "VI – Infographics"
+					}
+				]
+			}
+		]
+	},
+	{
+		"section_number": "SECTION 02",
+		"section_name": "TEAMS",
+		"section_rules": [
+			{
+				"rule_number": 5,
+				"rule_name": "TEAM",
+				"subrules": [
+					{
+						"page": 25,
+						"subrule_number": "5.1.",
+						"subrule_name": "ELIGIBLE PLAYERS",
+						"rule_text": "Lorem ipsum.",
+						"appendix_information": null
+					},
+					{
+						"page": 25,
+						"subrule_number": "5.2.",
+						"subrule_name": "INELIGIBLE PLAYER",
+						"rule_text": "Lorem ipsum.",
+						"appendix_information": null
+					}
+				]
+			}
+		]
+	}
+]
