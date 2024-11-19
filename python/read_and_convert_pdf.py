@@ -4,7 +4,6 @@ import json
 import re
 
 # todo: maybe highlight bold text with <b> or something else
-# todo: check for dashes ("-") in words if they are broken because of line changes
 class RuleExtractor:
     def __init__(self):
         self.rules = []
@@ -550,6 +549,12 @@ class RuleExtractor:
         else:
             rule_text = current_rule_text + " " + stripped_text
 
+        # remove hyphenation
+        rule_text = self.remove_hyphenation(rule_text)
+
+        # remove whitespace between words with needed hyphenation in between
+        rule_text = self.remove_whitespace_between_words_with_hyphenation(rule_text)
+
         return {"status": True, "text": rule_text.strip()}
 
     def check_and_clean_appendix_information(self, text, font_size, font_color, font_family):
@@ -613,7 +618,7 @@ class RuleExtractor:
                                         reference += " – " + stripped_text
 
                             # remove hyphenation
-                            reference = re.sub(r"([a-zA-Z])-\s*([a-zA-Z])", r"\1\2", reference)
+                            reference = self.remove_hyphenation(reference)
                             current_subrule["rule_reference"][len(current_subrule["rule_reference"]) - 1] = reference.rstrip(".")
                         else:
                             print("ERROR:",stripped_text, self.current_page_number)
@@ -707,6 +712,16 @@ class RuleExtractor:
             current_section["section_rules"].append(current_rule)
 
         return current_section
+
+    @staticmethod
+    def remove_hyphenation(text):
+        return re.sub(r"([a-zA-Z])-\s([a-zA-Z])", r"\1\2", text)
+
+    @staticmethod
+    def remove_whitespace_between_words_with_hyphenation(text):
+        text = re.sub(r"([a-zA-Z])\s-\s([a-zA-Z])", r"\1-\2", text)
+        text = re.sub(r"(“?[a-zA-Z]”?)\s?-\s(“?[a-zA-Z]”?)", r"\1-\2", text)
+        return text
 
     def reset_current_variables(self):
         # temp vars for rule creation
