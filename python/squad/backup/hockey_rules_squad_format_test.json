@@ -1,0 +1,305 @@
+{
+    "version": "v2.0",
+    "data": [
+        {
+            "title": "PLAYING AREA - RINK",
+            "paragraphs": [
+                {
+                    "context": "Games under jurisdiction of the IIHF shall be played on an ice surface known as the “Rink” and must adhere to the dimensions and specifications prescribed by the IIHF and these rules. No ice markings shall be permitted except those provided for under these rules unless express written permission has been obtained from the IIHF. On-ice logos must not interfere with any official ice markings provided for the proper playing of the game. In the interval between periods, the ice surface shall be flooded unless mutually agreed to the contrary.",
+                    "qas": [
+                        [
+                            {
+                                "question": "What organization's jurisdiction mandates that games must be played on an ice surface known as the \"Rink\" with specific dimensions and specifications?",
+                                "id": "1.1.-1",
+                                "answers": [
+                                    {
+                                        "text": "Games under jurisdiction of the IIHF shall be played on an ice surface known as the “Rink” and must adhere to the dimensions and specifications prescribed by the IIHF and these rules. No ice markings shall be permitted except those provided for under these rules unless express written permission has been obtained from the IIHF. On-ice logos must not interfere with any official ice markings provided for the proper playing of the game. In the interval between periods, the ice surface shall be flooded unless mutually agreed to the contrary.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "According to the rules, are any additional ice markings allowed on the rink without express written permission from the IIHF?",
+                                "id": "1.1.-2",
+                                "answers": [
+                                    {
+                                        "text": "Games under jurisdiction of the IIHF shall be played on an ice surface known as the “Rink” and must adhere to the dimensions and specifications prescribed by the IIHF and these rules. No ice markings shall be permitted except those provided for under these rules unless express written permission has been obtained from the IIHF. On-ice logos must not interfere with any official ice markings provided for the proper playing of the game. In the interval between periods, the ice surface shall be flooded unless mutually agreed to the contrary.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "How are on-ice logos required to be positioned so as not to interfere with the official ice markings necessary for the proper playing of the game?",
+                                "id": "1.1.-3",
+                                "answers": [
+                                    {
+                                        "text": "Games under jurisdiction of the IIHF shall be played on an ice surface known as the “Rink” and must adhere to the dimensions and specifications prescribed by the IIHF and these rules. No ice markings shall be permitted except those provided for under these rules unless express written permission has been obtained from the IIHF. On-ice logos must not interfere with any official ice markings provided for the proper playing of the game. In the interval between periods, the ice surface shall be flooded unless mutually agreed to the contrary.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "Is it mandatory for the ice surface to be flooded during the interval between periods, or can this be altered based on mutual agreement?",
+                                "id": "1.1.-4",
+                                "answers": [
+                                    {
+                                        "text": "Games under jurisdiction of the IIHF shall be played on an ice surface known as the “Rink” and must adhere to the dimensions and specifications prescribed by the IIHF and these rules. No ice markings shall be permitted except those provided for under these rules unless express written permission has been obtained from the IIHF. On-ice logos must not interfere with any official ice markings provided for the proper playing of the game. In the interval between periods, the ice surface shall be flooded unless mutually agreed to the contrary.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "What are the consequences if a team fails to adhere to the prescribed dimensions and specifications of the rink as set by the IIHF and the rules?",
+                                "id": "1.1.-5",
+                                "answers": [
+                                    {
+                                        "text": "Games under jurisdiction of the IIHF shall be played on an ice surface known as the “Rink” and must adhere to the dimensions and specifications prescribed by the IIHF and these rules. No ice markings shall be permitted except those provided for under these rules unless express written permission has been obtained from the IIHF. On-ice logos must not interfere with any official ice markings provided for the proper playing of the game. In the interval between periods, the ice surface shall be flooded unless mutually agreed to the contrary.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "context": "The official size of the Rink shall be 60 m long and 26 m to 30 m wide. The corners shall be rounded in the arc of a circle with a radius of 7.0 m to 8.50 m. Any deviations from these dimensions for any IIHF competition require IIHF approval.",
+                    "qas": [
+                        [
+                            {
+                                "question": "What are the official dimensions of a hockey rink according to the rulebook?",
+                                "id": "1.2.-1",
+                                "answers": [
+                                    {
+                                        "text": "The official size of the Rink shall be 60 m long and 26 m to 30 m wide. The corners shall be rounded in the arc of a circle with a radius of 7.0 m to 8.50 m. Any deviations from these dimensions for any IIHF competition require IIHF approval.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "How wide can a hockey rink be within the acceptable range specified in the rulebook?",
+                                "id": "1.2.-2",
+                                "answers": [
+                                    {
+                                        "text": "The official size of the Rink shall be 60 m long and 26 m to 30 m wide. The corners shall be rounded in the arc of a circle with a radius of 7.0 m to 8.50 m. Any deviations from these dimensions for any IIHF competition require IIHF approval.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "What is the radius range for the rounded corners of a hockey rink as per the official rules?",
+                                "id": "1.2.-3",
+                                "answers": [
+                                    {
+                                        "text": "The official size of the Rink shall be 60 m long and 26 m to 30 m wide. The corners shall be rounded in the arc of a circle with a radius of 7.0 m to 8.50 m. Any deviations from these dimensions for any IIHF competition require IIHF approval.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "Why is it important for any deviations from the standard rink dimensions to require IIHF approval in international competitions?",
+                                "id": "1.2.-4",
+                                "answers": [
+                                    {
+                                        "text": "The official size of the Rink shall be 60 m long and 26 m to 30 m wide. The corners shall be rounded in the arc of a circle with a radius of 7.0 m to 8.50 m. Any deviations from these dimensions for any IIHF competition require IIHF approval.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "How do the dimensions of a hockey rink impact the gameplay and strategy of teams during a match?",
+                                "id": "1.2.-5",
+                                "answers": [
+                                    {
+                                        "text": "The official size of the Rink shall be 60 m long and 26 m to 30 m wide. The corners shall be rounded in the arc of a circle with a radius of 7.0 m to 8.50 m. Any deviations from these dimensions for any IIHF competition require IIHF approval.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            }
+                        ]
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "PLAYING AREA - GOAL POSTS AND NETS",
+            "paragraphs": [
+                {
+                    "context": "Each Rink must have two (2) “Goal Nets”, one at either end of the Rink. The “Goal Net” is comprised of a Goal frame and netting. The open end of the goal net must face Center ice. Each Goal Net must be located in the center of the Goal Line at either end and must be installed in such manner as to remain stationary during the progress of the game. The Goal posts must be kept in position by means of flexible pegs affixed in the ice or floor, but which displace the Goal Net from its moorings upon significant contact. The holes for the goal pegs must be located exactly on the Goal Line. The Goal posts shall be of an approved design and material, extending vertically 1.22 m above the surface of the ice and set 1.83 m apart measured from the inside of the posts. A crossbar of the same material as the Goal posts shall extend from the top of one post to the top of the other. The Goal posts and crossbar shall be painted in red color and all other exterior surfaces shall be painted in white color.",
+                    "qas": [
+                        [
+                            {
+                                "question": "What are the specific dimensions of the Goal posts in a hockey rink according to the rules?",
+                                "id": "2.1.-1",
+                                "answers": [
+                                    {
+                                        "text": "Each Rink must have two (2) “Goal Nets”, one at either end of the Rink. The “Goal Net” is comprised of a Goal frame and netting. The open end of the goal net must face Center ice. Each Goal Net must be located in the center of the Goal Line at either end and must be installed in such manner as to remain stationary during the progress of the game. The Goal posts must be kept in position by means of flexible pegs affixed in the ice or floor, but which displace the Goal Net from its moorings upon significant contact. The holes for the goal pegs must be located exactly on the Goal Line. The Goal posts shall be of an approved design and material, extending vertically 1.22 m above the surface of the ice and set 1.83 m apart measured from the inside of the posts. A crossbar of the same material as the Goal posts shall extend from the top of one post to the top of the other. The Goal posts and crossbar shall be painted in red color and all other exterior surfaces shall be painted in white color.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "How are the Goal posts in a hockey rink secured in place to ensure they remain stationary during gameplay?",
+                                "id": "2.1.-2",
+                                "answers": [
+                                    {
+                                        "text": "Each Rink must have two (2) “Goal Nets”, one at either end of the Rink. The “Goal Net” is comprised of a Goal frame and netting. The open end of the goal net must face Center ice. Each Goal Net must be located in the center of the Goal Line at either end and must be installed in such manner as to remain stationary during the progress of the game. The Goal posts must be kept in position by means of flexible pegs affixed in the ice or floor, but which displace the Goal Net from its moorings upon significant contact. The holes for the goal pegs must be located exactly on the Goal Line. The Goal posts shall be of an approved design and material, extending vertically 1.22 m above the surface of the ice and set 1.83 m apart measured from the inside of the posts. A crossbar of the same material as the Goal posts shall extend from the top of one post to the top of the other. The Goal posts and crossbar shall be painted in red color and all other exterior surfaces shall be painted in white color.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "What is the purpose of the flexible pegs affixed in the ice or floor in relation to the Goal posts?",
+                                "id": "2.1.-3",
+                                "answers": [
+                                    {
+                                        "text": "Each Rink must have two (2) “Goal Nets”, one at either end of the Rink. The “Goal Net” is comprised of a Goal frame and netting. The open end of the goal net must face Center ice. Each Goal Net must be located in the center of the Goal Line at either end and must be installed in such manner as to remain stationary during the progress of the game. The Goal posts must be kept in position by means of flexible pegs affixed in the ice or floor, but which displace the Goal Net from its moorings upon significant contact. The holes for the goal pegs must be located exactly on the Goal Line. The Goal posts shall be of an approved design and material, extending vertically 1.22 m above the surface of the ice and set 1.83 m apart measured from the inside of the posts. A crossbar of the same material as the Goal posts shall extend from the top of one post to the top of the other. The Goal posts and crossbar shall be painted in red color and all other exterior surfaces shall be painted in white color.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "Why must the open end of the Goal net face Center ice in a hockey rink?",
+                                "id": "2.1.-4",
+                                "answers": [
+                                    {
+                                        "text": "Each Rink must have two (2) “Goal Nets”, one at either end of the Rink. The “Goal Net” is comprised of a Goal frame and netting. The open end of the goal net must face Center ice. Each Goal Net must be located in the center of the Goal Line at either end and must be installed in such manner as to remain stationary during the progress of the game. The Goal posts must be kept in position by means of flexible pegs affixed in the ice or floor, but which displace the Goal Net from its moorings upon significant contact. The holes for the goal pegs must be located exactly on the Goal Line. The Goal posts shall be of an approved design and material, extending vertically 1.22 m above the surface of the ice and set 1.83 m apart measured from the inside of the posts. A crossbar of the same material as the Goal posts shall extend from the top of one post to the top of the other. The Goal posts and crossbar shall be painted in red color and all other exterior surfaces shall be painted in white color.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "How are the Goal posts and crossbar in a hockey rink required to be painted according to the rules?",
+                                "id": "2.1.-5",
+                                "answers": [
+                                    {
+                                        "text": "Each Rink must have two (2) “Goal Nets”, one at either end of the Rink. The “Goal Net” is comprised of a Goal frame and netting. The open end of the goal net must face Center ice. Each Goal Net must be located in the center of the Goal Line at either end and must be installed in such manner as to remain stationary during the progress of the game. The Goal posts must be kept in position by means of flexible pegs affixed in the ice or floor, but which displace the Goal Net from its moorings upon significant contact. The holes for the goal pegs must be located exactly on the Goal Line. The Goal posts shall be of an approved design and material, extending vertically 1.22 m above the surface of the ice and set 1.83 m apart measured from the inside of the posts. A crossbar of the same material as the Goal posts shall extend from the top of one post to the top of the other. The Goal posts and crossbar shall be painted in red color and all other exterior surfaces shall be painted in white color.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "context": "A net of an approved design shall be attached to each Goal frame and made of white nylon cord, which shall be draped in such a manner as to prevent the puck coming to rest on the outside of it yet strung in a manner that will keep the puck in the net. A skirt of heavy white nylon fabric or heavyweight white canvas shall be laced around the base plate of the goal frame in such a way as to protect the Goal net from being cut or broken. This protective padding must be attached in a manner that will not restrict the puck from completely crossing the Goal Line. This padding must be set back 15 cm from the inside of the Goal post. This skirt shall not project more than 2.5 cm above the base plate. The frame of the Goal shall be draped with a nylon mesh net to completely enclose the back of the frame.",
+                    "qas": [
+                        [
+                            {
+                                "question": "How should the net be attached to each goal frame according to the rules?",
+                                "id": "2.2.-1",
+                                "answers": [
+                                    {
+                                        "text": "A net of an approved design shall be attached to each Goal frame and made of white nylon cord, which shall be draped in such a manner as to prevent the puck coming to rest on the outside of it yet strung in a manner that will keep the puck in the net. A skirt of heavy white nylon fabric or heavyweight white canvas shall be laced around the base plate of the goal frame in such a way as to protect the Goal net from being cut or broken. This protective padding must be attached in a manner that will not restrict the puck from completely crossing the Goal Line. This padding must be set back 15 cm from the inside of the Goal post. This skirt shall not project more than 2.5 cm above the base plate. The frame of the Goal shall be draped with a nylon mesh net to completely enclose the back of the frame.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "What material should the net be made of in order to comply with the regulations?",
+                                "id": "2.2.-2",
+                                "answers": [
+                                    {
+                                        "text": "A net of an approved design shall be attached to each Goal frame and made of white nylon cord, which shall be draped in such a manner as to prevent the puck coming to rest on the outside of it yet strung in a manner that will keep the puck in the net. A skirt of heavy white nylon fabric or heavyweight white canvas shall be laced around the base plate of the goal frame in such a way as to protect the Goal net from being cut or broken. This protective padding must be attached in a manner that will not restrict the puck from completely crossing the Goal Line. This padding must be set back 15 cm from the inside of the Goal post. This skirt shall not project more than 2.5 cm above the base plate. The frame of the Goal shall be draped with a nylon mesh net to completely enclose the back of the frame.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "How should the net be draped to prevent the puck from coming to rest on the outside of it?",
+                                "id": "2.2.-3",
+                                "answers": [
+                                    {
+                                        "text": "A net of an approved design shall be attached to each Goal frame and made of white nylon cord, which shall be draped in such a manner as to prevent the puck coming to rest on the outside of it yet strung in a manner that will keep the puck in the net. A skirt of heavy white nylon fabric or heavyweight white canvas shall be laced around the base plate of the goal frame in such a way as to protect the Goal net from being cut or broken. This protective padding must be attached in a manner that will not restrict the puck from completely crossing the Goal Line. This padding must be set back 15 cm from the inside of the Goal post. This skirt shall not project more than 2.5 cm above the base plate. The frame of the Goal shall be draped with a nylon mesh net to completely enclose the back of the frame.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "What is the purpose of the skirt of heavy white nylon fabric or heavyweight white canvas laced around the base plate of the goal frame?",
+                                "id": "2.2.-4",
+                                "answers": [
+                                    {
+                                        "text": "A net of an approved design shall be attached to each Goal frame and made of white nylon cord, which shall be draped in such a manner as to prevent the puck coming to rest on the outside of it yet strung in a manner that will keep the puck in the net. A skirt of heavy white nylon fabric or heavyweight white canvas shall be laced around the base plate of the goal frame in such a way as to protect the Goal net from being cut or broken. This protective padding must be attached in a manner that will not restrict the puck from completely crossing the Goal Line. This padding must be set back 15 cm from the inside of the Goal post. This skirt shall not project more than 2.5 cm above the base plate. The frame of the Goal shall be draped with a nylon mesh net to completely enclose the back of the frame.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "How far back from the inside of the goal post should the protective padding be set according to the rules?",
+                                "id": "2.2.-5",
+                                "answers": [
+                                    {
+                                        "text": "A net of an approved design shall be attached to each Goal frame and made of white nylon cord, which shall be draped in such a manner as to prevent the puck coming to rest on the outside of it yet strung in a manner that will keep the puck in the net. A skirt of heavy white nylon fabric or heavyweight white canvas shall be laced around the base plate of the goal frame in such a way as to protect the Goal net from being cut or broken. This protective padding must be attached in a manner that will not restrict the puck from completely crossing the Goal Line. This padding must be set back 15 cm from the inside of the Goal post. This skirt shall not project more than 2.5 cm above the base plate. The frame of the Goal shall be draped with a nylon mesh net to completely enclose the back of the frame.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            }
+                        ]
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "TEAMS - TEAM",
+            "paragraphs": [
+                {
+                    "context": "A Game is contested between two (2) Teams which play under the direction of On-ice and Off-ice Officials. A Team shall be composed of twenty-two (22) Players. No more than twenty (20) Skaters and two (2) Goalkeepers shall be permitted. For the purposes of these playing rules, any reference to “Player” shall refer to both Skaters and Goalkeepers. Any reference to “Goalkeeper” shall mean that the section of the rule is specific to Goalkeepers. Prior to the start of each game, the Team Manager or Coach of each Team shall list on a “Line-up / Roster Sheet” the Players who are eligible to play in the game. For a Team to play a game, it must be able to put on the ice at least five (5) Skaters and one (1) Goalkeeper at the beginning of the game. Only eligible Players can be listed on the Roster Sheet and play in a Game. Players who are registered for a tournament or event but who are not listed on the Official Game Sheet can participate in the pre-game warm-up. The Coach must submit the “Line-up / Roster Sheet” to the Official Scorekeeper at least sixty (60) minutes prior to the start of the game. The Official Game Sheet with the listed names and numbers of all eligible Players must be handed to the On-ice Game Officials before the Game, and no change shall be permitted to the Official Game Sheet after the commencement of the Game. Prior to the Game, if an Official (on-ice or off-ice) notices that a Player is in uniform but has not been included on the Official Game Sheet, the Referee shall bring this to the attention of the offending Team so that the necessary correction can be made to the Official Game Sheet with no penalty assessed. At IIHF Championships, a representative from each Team must confirm the “Line-up / Roster Sheet” at least two (2) minutes prior to the start of the Game, and Players may be added or deleted up to the “opening face-off”. Game rules will not allow for a Team to have more than six (6) Players (one (1) Goalkeeper and five (5) Skaters) on the ice at any time during game action when the team is not penalized. {rule_reference_0} A Team must put at least four (4) Players (one (1) Goalkeeper and three (3) Skaters) on the ice, if two (2) or more Players are penalized. A Team must put the required number of players on the ice to resume play. {rule_reference_1} For more information refer to IIHF Sport Guideline and IIHF Event Codes.",
+                    "qas": [
+                        [
+                            {
+                                "question": "How many players are allowed on a hockey team according to the rule mentioned in the context?",
+                                "id": "5.1.-1",
+                                "answers": [
+                                    {
+                                        "text": "A Game is contested between two (2) Teams which play under the direction of On-ice and Off-ice Officials. A Team shall be composed of twenty-two (22) Players. No more than twenty (20) Skaters and two (2) Goalkeepers shall be permitted. For the purposes of these playing rules, any reference to “Player” shall refer to both Skaters and Goalkeepers. Any reference to “Goalkeeper” shall mean that the section of the rule is specific to Goalkeepers. Prior to the start of each game, the Team Manager or Coach of each Team shall list on a “Line-up / Roster Sheet” the Players who are eligible to play in the game. For a Team to play a game, it must be able to put on the ice at least five (5) Skaters and one (1) Goalkeeper at the beginning of the game. Only eligible Players can be listed on the Roster Sheet and play in a Game. Players who are registered for a tournament or event but who are not listed on the Official Game Sheet can participate in the pre-game warm-up. The Coach must submit the “Line-up / Roster Sheet” to the Official Scorekeeper at least sixty (60) minutes prior to the start of the game. The Official Game Sheet with the listed names and numbers of all eligible Players must be handed to the On-ice Game Officials before the Game, and no change shall be permitted to the Official Game Sheet after the commencement of the Game. Prior to the Game, if an Official (on-ice or off-ice) notices that a Player is in uniform but has not been included on the Official Game Sheet, the Referee shall bring this to the attention of the offending Team so that the necessary correction can be made to the Official Game Sheet with no penalty assessed. At IIHF Championships, a representative from each Team must confirm the “Line-up / Roster Sheet” at least two (2) minutes prior to the start of the Game, and Players may be added or deleted up to the “opening face-off”. Game rules will not allow for a Team to have more than six (6) Players (one (1) Goalkeeper and five (5) Skaters) on the ice at any time during game action when the team is not penalized. {rule_reference_0} A Team must put at least four (4) Players (one (1) Goalkeeper and three (3) Skaters) on the ice, if two (2) or more Players are penalized. A Team must put the required number of players on the ice to resume play. {rule_reference_1} For more information refer to IIHF Sport Guideline and IIHF Event Codes.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "What is the minimum number of skaters and goalkeepers a team must have on the ice at the beginning of a game to be eligible to play?",
+                                "id": "5.1.-2",
+                                "answers": [
+                                    {
+                                        "text": "A Game is contested between two (2) Teams which play under the direction of On-ice and Off-ice Officials. A Team shall be composed of twenty-two (22) Players. No more than twenty (20) Skaters and two (2) Goalkeepers shall be permitted. For the purposes of these playing rules, any reference to “Player” shall refer to both Skaters and Goalkeepers. Any reference to “Goalkeeper” shall mean that the section of the rule is specific to Goalkeepers. Prior to the start of each game, the Team Manager or Coach of each Team shall list on a “Line-up / Roster Sheet” the Players who are eligible to play in the game. For a Team to play a game, it must be able to put on the ice at least five (5) Skaters and one (1) Goalkeeper at the beginning of the game. Only eligible Players can be listed on the Roster Sheet and play in a Game. Players who are registered for a tournament or event but who are not listed on the Official Game Sheet can participate in the pre-game warm-up. The Coach must submit the “Line-up / Roster Sheet” to the Official Scorekeeper at least sixty (60) minutes prior to the start of the game. The Official Game Sheet with the listed names and numbers of all eligible Players must be handed to the On-ice Game Officials before the Game, and no change shall be permitted to the Official Game Sheet after the commencement of the Game. Prior to the Game, if an Official (on-ice or off-ice) notices that a Player is in uniform but has not been included on the Official Game Sheet, the Referee shall bring this to the attention of the offending Team so that the necessary correction can be made to the Official Game Sheet with no penalty assessed. At IIHF Championships, a representative from each Team must confirm the “Line-up / Roster Sheet” at least two (2) minutes prior to the start of the Game, and Players may be added or deleted up to the “opening face-off”. Game rules will not allow for a Team to have more than six (6) Players (one (1) Goalkeeper and five (5) Skaters) on the ice at any time during game action when the team is not penalized. {rule_reference_0} A Team must put at least four (4) Players (one (1) Goalkeeper and three (3) Skaters) on the ice, if two (2) or more Players are penalized. A Team must put the required number of players on the ice to resume play. {rule_reference_1} For more information refer to IIHF Sport Guideline and IIHF Event Codes.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "What is the deadline for the Team Manager or Coach to submit the \"Line-up / Roster Sheet\" to the Official Scorekeeper before the start of a game?",
+                                "id": "5.1.-3",
+                                "answers": [
+                                    {
+                                        "text": "A Game is contested between two (2) Teams which play under the direction of On-ice and Off-ice Officials. A Team shall be composed of twenty-two (22) Players. No more than twenty (20) Skaters and two (2) Goalkeepers shall be permitted. For the purposes of these playing rules, any reference to “Player” shall refer to both Skaters and Goalkeepers. Any reference to “Goalkeeper” shall mean that the section of the rule is specific to Goalkeepers. Prior to the start of each game, the Team Manager or Coach of each Team shall list on a “Line-up / Roster Sheet” the Players who are eligible to play in the game. For a Team to play a game, it must be able to put on the ice at least five (5) Skaters and one (1) Goalkeeper at the beginning of the game. Only eligible Players can be listed on the Roster Sheet and play in a Game. Players who are registered for a tournament or event but who are not listed on the Official Game Sheet can participate in the pre-game warm-up. The Coach must submit the “Line-up / Roster Sheet” to the Official Scorekeeper at least sixty (60) minutes prior to the start of the game. The Official Game Sheet with the listed names and numbers of all eligible Players must be handed to the On-ice Game Officials before the Game, and no change shall be permitted to the Official Game Sheet after the commencement of the Game. Prior to the Game, if an Official (on-ice or off-ice) notices that a Player is in uniform but has not been included on the Official Game Sheet, the Referee shall bring this to the attention of the offending Team so that the necessary correction can be made to the Official Game Sheet with no penalty assessed. At IIHF Championships, a representative from each Team must confirm the “Line-up / Roster Sheet” at least two (2) minutes prior to the start of the Game, and Players may be added or deleted up to the “opening face-off”. Game rules will not allow for a Team to have more than six (6) Players (one (1) Goalkeeper and five (5) Skaters) on the ice at any time during game action when the team is not penalized. {rule_reference_0} A Team must put at least four (4) Players (one (1) Goalkeeper and three (3) Skaters) on the ice, if two (2) or more Players are penalized. A Team must put the required number of players on the ice to resume play. {rule_reference_1} For more information refer to IIHF Sport Guideline and IIHF Event Codes.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "What action should be taken if an Official notices that a Player is in uniform but has not been included on the Official Game Sheet prior to the start of a game?",
+                                "id": "5.1.-4",
+                                "answers": [
+                                    {
+                                        "text": "A Game is contested between two (2) Teams which play under the direction of On-ice and Off-ice Officials. A Team shall be composed of twenty-two (22) Players. No more than twenty (20) Skaters and two (2) Goalkeepers shall be permitted. For the purposes of these playing rules, any reference to “Player” shall refer to both Skaters and Goalkeepers. Any reference to “Goalkeeper” shall mean that the section of the rule is specific to Goalkeepers. Prior to the start of each game, the Team Manager or Coach of each Team shall list on a “Line-up / Roster Sheet” the Players who are eligible to play in the game. For a Team to play a game, it must be able to put on the ice at least five (5) Skaters and one (1) Goalkeeper at the beginning of the game. Only eligible Players can be listed on the Roster Sheet and play in a Game. Players who are registered for a tournament or event but who are not listed on the Official Game Sheet can participate in the pre-game warm-up. The Coach must submit the “Line-up / Roster Sheet” to the Official Scorekeeper at least sixty (60) minutes prior to the start of the game. The Official Game Sheet with the listed names and numbers of all eligible Players must be handed to the On-ice Game Officials before the Game, and no change shall be permitted to the Official Game Sheet after the commencement of the Game. Prior to the Game, if an Official (on-ice or off-ice) notices that a Player is in uniform but has not been included on the Official Game Sheet, the Referee shall bring this to the attention of the offending Team so that the necessary correction can be made to the Official Game Sheet with no penalty assessed. At IIHF Championships, a representative from each Team must confirm the “Line-up / Roster Sheet” at least two (2) minutes prior to the start of the Game, and Players may be added or deleted up to the “opening face-off”. Game rules will not allow for a Team to have more than six (6) Players (one (1) Goalkeeper and five (5) Skaters) on the ice at any time during game action when the team is not penalized. {rule_reference_0} A Team must put at least four (4) Players (one (1) Goalkeeper and three (3) Skaters) on the ice, if two (2) or more Players are penalized. A Team must put the required number of players on the ice to resume play. {rule_reference_1} For more information refer to IIHF Sport Guideline and IIHF Event Codes.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "How many players can a team have on the ice at any given time during game action when the team is not penalized, according to the rule mentioned in the context?",
+                                "id": "5.1.-5",
+                                "answers": [
+                                    {
+                                        "text": "A Game is contested between two (2) Teams which play under the direction of On-ice and Off-ice Officials. A Team shall be composed of twenty-two (22) Players. No more than twenty (20) Skaters and two (2) Goalkeepers shall be permitted. For the purposes of these playing rules, any reference to “Player” shall refer to both Skaters and Goalkeepers. Any reference to “Goalkeeper” shall mean that the section of the rule is specific to Goalkeepers. Prior to the start of each game, the Team Manager or Coach of each Team shall list on a “Line-up / Roster Sheet” the Players who are eligible to play in the game. For a Team to play a game, it must be able to put on the ice at least five (5) Skaters and one (1) Goalkeeper at the beginning of the game. Only eligible Players can be listed on the Roster Sheet and play in a Game. Players who are registered for a tournament or event but who are not listed on the Official Game Sheet can participate in the pre-game warm-up. The Coach must submit the “Line-up / Roster Sheet” to the Official Scorekeeper at least sixty (60) minutes prior to the start of the game. The Official Game Sheet with the listed names and numbers of all eligible Players must be handed to the On-ice Game Officials before the Game, and no change shall be permitted to the Official Game Sheet after the commencement of the Game. Prior to the Game, if an Official (on-ice or off-ice) notices that a Player is in uniform but has not been included on the Official Game Sheet, the Referee shall bring this to the attention of the offending Team so that the necessary correction can be made to the Official Game Sheet with no penalty assessed. At IIHF Championships, a representative from each Team must confirm the “Line-up / Roster Sheet” at least two (2) minutes prior to the start of the Game, and Players may be added or deleted up to the “opening face-off”. Game rules will not allow for a Team to have more than six (6) Players (one (1) Goalkeeper and five (5) Skaters) on the ice at any time during game action when the team is not penalized. {rule_reference_0} A Team must put at least four (4) Players (one (1) Goalkeeper and three (3) Skaters) on the ice, if two (2) or more Players are penalized. A Team must put the required number of players on the ice to resume play. {rule_reference_1} For more information refer to IIHF Sport Guideline and IIHF Event Codes.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            }
+                        ]
+                    ]
+                }
+            ]
+        }
+    ]
+}

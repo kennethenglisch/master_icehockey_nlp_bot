@@ -170,6 +170,10 @@ class RuleExtractor:
                                     font_color = span["color"]
                                     font = span["font"]
 
+                                    # used to remove unnecessary information
+                                    if "»" in text or text == " ":
+                                        last_span = span
+
                                     if font_size < self.get_smallest_font_size() or font_size > self.get_greatest_font_size():
                                         continue
 
@@ -179,10 +183,6 @@ class RuleExtractor:
                                         if not result["status"] and "appendix" in result and result["appendix"]:
                                             break_all = True
                                             break
-
-                                    # if "JUNIOR ICE HOCKEY" in text and self.current_page_number == 151:
-                                    #     print("--------------------------")
-                                    #     print(span)
 
                                     if not anything_found:
                                         # check for page number
@@ -238,7 +238,7 @@ class RuleExtractor:
                                             anything_found = True
 
                                     if not anything_found:
-                                        rule_text_result = self.check_and_clean_rule_text(text, font_size, font_color, font, self.current_rule_text)
+                                        rule_text_result = self.check_and_clean_rule_text(text, font_size, font_color, font, self.current_rule_text, last_span)
                                         if rule_text_result["status"]:
                                             self.current_rule_text = rule_text_result["text"]
                                             anything_found = True
@@ -530,7 +530,7 @@ class RuleExtractor:
 
         return {"status": False, "name": None}
 
-    def check_and_clean_rule_text(self, text, font_size, font_color, font_family, current_rule_text):
+    def check_and_clean_rule_text(self, text, font_size, font_color, font_family, current_rule_text, last_span):
         # strip text for white spaces
         stripped_text = text.strip()
 
@@ -543,6 +543,9 @@ class RuleExtractor:
 
         if not is_rule_text and not is_rule_text_headline and not is_text_between_rule_references:
             return {"status": False, "text": None}
+
+        if "»" in last_span["text"] or last_span["text"] == " " and "For more information refer to" in stripped_text:
+            stripped_text = "( » " + stripped_text + ")"
 
         if stripped_text.startswith(")"):
             rule_text = current_rule_text + stripped_text

@@ -1,0 +1,67 @@
+{
+    "version": "v2.0",
+    "data": [
+        {
+            "title": "PLAYING AREA - RINK",
+            "paragraphs": [
+                {
+                    "context": "Games under jurisdiction of the IIHF shall be played on an ice surface known as the “Rink” and must adhere to the dimensions and specifications prescribed by the IIHF and these rules. No ice markings shall be permitted except those provided for under these rules unless express written permission has been obtained from the IIHF. On-ice logos must not interfere with any official ice markings provided for the proper playing of the game. In the interval between periods, the ice surface shall be flooded unless mutually agreed to the contrary.",
+                    "qas": [
+                        [
+                            {
+                                "question": "What are the dimensions and specifications prescribed by the IIHF for the ice surface known as the \"Rink\" in hockey games under their jurisdiction?",
+                                "id": "1.1.-1",
+                                "answers": [
+                                    {
+                                        "text": "Concise Answer: The IIHF prescribes dimensions and specifications for the ice surface, known as the \"Rink,\" for hockey games under their jurisdiction, including specific rules on ice markings, logos, and flooding between periods.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "Are there any specific ice markings allowed on the Rink in IIHF-sanctioned games other than those provided for under the rules, and if so, under what conditions can they be used?",
+                                "id": "1.1.-2",
+                                "answers": [
+                                    {
+                                        "text": "Concise Answer: No ice markings are allowed on the Rink in IIHF-sanctioned games unless expressly permitted by the IIHF.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "How are on-ice logos regulated in IIHF games to ensure they do not interfere with the official ice markings necessary for the proper playing of the game?",
+                                "id": "1.1.-3",
+                                "answers": [
+                                    {
+                                        "text": "On-ice logos in IIHF games must not interfere with official ice markings necessary for proper gameplay, and permission is required for any additional markings.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "Is it mandatory for the ice surface to be flooded during the interval between periods in IIHF games, or can this be waived if mutually agreed upon by the teams?",
+                                "id": "1.1.-4",
+                                "answers": [
+                                    {
+                                        "text": "Yes, the ice surface must be flooded during the interval between periods in IIHF games unless mutually agreed upon by the teams.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "What is the process for obtaining express written permission from the IIHF to have additional ice markings beyond those provided for under the rules in a hockey game under their jurisdiction?",
+                                "id": "1.1.-5",
+                                "answers": [
+                                    {
+                                        "text": "To have additional ice markings beyond those allowed by IIHF rules in a hockey game, you must obtain express written permission from the IIHF.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            }
+                        ]
+                    ]
+                }
+            ]
+        }
+    ]
+}

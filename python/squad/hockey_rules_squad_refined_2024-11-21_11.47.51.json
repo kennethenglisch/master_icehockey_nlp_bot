@@ -1,0 +1,124 @@
+{
+    "version": "v2.0",
+    "data": [
+        {
+            "title": "PLAYING AREA - RINK",
+            "paragraphs": [
+                {
+                    "context": "Games under jurisdiction of the IIHF shall be played on an ice surface known as the “Rink” and must adhere to the dimensions and specifications prescribed by the IIHF and these rules. No ice markings shall be permitted except those provided for under these rules unless express written permission has been obtained from the IIHF. On-ice logos must not interfere with any official ice markings provided for the proper playing of the game. In the interval between periods, the ice surface shall be flooded unless mutually agreed to the contrary.",
+                    "qas": [
+                        [
+                            {
+                                "question": "What are the dimensions and specifications prescribed by the IIHF for the ice surface known as the \"Rink\" in hockey games under their jurisdiction?",
+                                "id": "1.1.-1",
+                                "answers": [
+                                    {
+                                        "text": "The IIHF prescribes specific dimensions and specifications for the ice surface known as the \"Rink\" in hockey games under their jurisdiction.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "Are there any specific ice markings allowed on the Rink in IIHF-sanctioned games other than those provided for under the rules, and if so, under what conditions can they be used?",
+                                "id": "1.1.-2",
+                                "answers": [
+                                    {
+                                        "text": "No ice markings are allowed on the Rink in IIHF-sanctioned games unless expressly permitted by the IIHF. On-ice logos must not disrupt official markings.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "How are on-ice logos regulated in IIHF games to ensure they do not interfere with the official ice markings necessary for the proper playing of the game?",
+                                "id": "1.1.-3",
+                                "answers": [
+                                    {
+                                        "text": "On-ice logos in IIHF games must not interfere with official ice markings necessary for the proper playing of the game.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "Is it mandatory for the ice surface to be flooded during the interval between periods in IIHF games, or can this be waived if mutually agreed upon by the teams?",
+                                "id": "1.1.-4",
+                                "answers": [
+                                    {
+                                        "text": "Yes, in IIHF games, the ice surface must be flooded during the interval between periods unless mutually agreed upon by the teams.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "What is the process for obtaining express written permission from the IIHF to have additional ice markings beyond those provided for under the rules in a hockey game under their jurisdiction?",
+                                "id": "1.1.-5",
+                                "answers": [
+                                    {
+                                        "text": "To have additional ice markings beyond those allowed by IIHF rules in a hockey game under their jurisdiction, you must obtain express written permission from the IIHF.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "context": "The official size of the Rink shall be 60 m long and 26 m to 30 m wide. The corners shall be rounded in the arc of a circle with a radius of 7.0 m to 8.50 m. Any deviations from these dimensions for any IIHF competition require IIHF approval.",
+                    "qas": [
+                        [
+                            {
+                                "question": "What are the official dimensions of a hockey rink according to the rulebook?",
+                                "id": "1.2.-1",
+                                "answers": [
+                                    {
+                                        "text": "The official dimensions of a hockey rink according to the rulebook are 60 meters long and 26 to 30 meters wide, with rounded corners in the arc of a circle with a radius of 7.0 to 8.50 meters.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "How wide can a hockey rink be within the acceptable range specified in the rulebook?",
+                                "id": "1.2.-2",
+                                "answers": [
+                                    {
+                                        "text": "The acceptable width range for a hockey rink specified in the rulebook is between 26 meters and 30 meters.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "What is the radius range for the rounded corners of a hockey rink as per the rulebook?",
+                                "id": "1.2.-3",
+                                "answers": [
+                                    {
+                                        "text": "The radius range for the rounded corners of a hockey rink as per the rulebook is 7.0 m to 8.50 m.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "Why is it important for any deviations from the standard rink dimensions to require IIHF approval in competitions?",
+                                "id": "1.2.-4",
+                                "answers": [
+                                    {
+                                        "text": "It is important for deviations from standard rink dimensions to require IIHF approval in competitions to maintain fairness and consistency in gameplay.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "question": "How do the dimensions of a hockey rink impact the gameplay and strategy of teams during a match?",
+                                "id": "1.2.-5",
+                                "answers": [
+                                    {
+                                        "text": "The dimensions of a hockey rink impact gameplay and strategy by influencing the speed of play, positioning of players, and effectiveness of tactics due to the confined space and specific angles created by the rink's size and shape.",
+                                        "answer_start": 0
+                                    }
+                                ]
+                            }
+                        ]
+                    ]
+                }
+            ]
+        }
+    ]
+}
