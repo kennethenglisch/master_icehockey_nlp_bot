@@ -63,7 +63,7 @@ class ValidateRuleNumbers:
             print(f"All rules between {start_rule} and {end_rule} are present.")
 
 # Example usage:
-file_path = "rules.json"  # Adjust the path to your JSON file
+file_path = "../data/json/rules/rules.json"  # Adjust the path to your JSON file
 # Generate ignored rules
 ignored_rules = list(range(88, 100)) + list(range(103, 200))
 rule_checker = ValidateRuleNumbers(file_path, ignored_rules)

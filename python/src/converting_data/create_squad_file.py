@@ -2,8 +2,7 @@
 import json
 import re
 from datetime import datetime
-
-openai.api_key = "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"
+from rulebot.auth import get_api_key
 
 class CreateHockeyRuleQA:
     def __init__(self, rules_file, num_questions=5):
@@ -12,6 +11,7 @@ class CreateHockeyRuleQA:
         self.num_questions = num_questions
         self.start_time = datetime.now()
         self.rules_json = self.load_rules()
+        openai.api_key = get_api_key()
 
     def load_rules(self):
         try:
@@ -180,10 +180,10 @@ class CreateHockeyRuleQA:
 
 # Example usage
 #rules_file = "test.json" # for testing and saving credits on api (only a few rules)
-rules_file = "rules.json"  # Path to the uploaded JSON file
+rules_file = "../../data/json/rules/rules.json"  # Path to the uploaded JSON file
 
 current_timestamp = datetime.now().strftime("%Y-%m-%d_%H.%M.%S")
-output_file = f"squad/hockey_rules_squad_format_{current_timestamp}.json"  # Output file name
+output_file = f"data/json/squad/hockey_rules_squad_format_{current_timestamp}.json"  # Output file name
 
 hockey_bot = CreateHockeyRuleQA(rules_file, 5)
 hockey_bot.save_squad_file(output_file)

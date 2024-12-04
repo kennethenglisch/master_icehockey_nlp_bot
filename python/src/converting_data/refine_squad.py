@@ -1,14 +1,14 @@
 ﻿import openai
 import json
 from datetime import datetime
-
-openai.api_key = "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"
+from rulebot.auth import get_api_key
 
 class SquadAnswerRefiner:
     def __init__(self, input_file, output_file):
         self.input_file = input_file
         self.output_file = output_file
         self.start_time = datetime.now()
+        openai.api_key = get_api_key()
 
     def load_squad_data(self):
         try:
@@ -107,11 +107,11 @@ class SquadAnswerRefiner:
         print(f"Process completed in: {str(elapsed_time).split('.')[0]}")
 
 
-input_file = "squad/hockey_rules_squad_format_2024-11-21_11.55.53.json"
+input_file = "../../data/json/squad/hockey_rules_squad_format_2024-11-21_11.55.53.json"
 #input_file = "squad/hockey_rules_squad_format_2024-11-20_16.06.23.json"
 
 current_timestamp = datetime.now().strftime("%Y-%m-%d_%H.%M.%S")
-output_file = f"squad/hockey_rules_squad_refined_{current_timestamp}.json"
+output_file = f"data/json/squad/hockey_rules_squad_refined_{current_timestamp}.json"
 
 refiner = SquadAnswerRefiner(input_file, output_file)
 refiner.refine_squad_data()

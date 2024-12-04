@@ -127,19 +127,19 @@ class RuleExtractor:
         pdf_path = input("Bitte geben Sie den Pfad zu Ihrem Regelbuch (PDF) ein oder wählen Sie eine der folgenden Optionen\n1 - rulebook_one_page_test.pdf\n2 - rulebook_three_page_test.pdf\n3 - rulebook_two_sections_test.pdf\n4 - rulebook_three_sections_test.pdf\nEnter oder 5 - 2024_iihf_rulebook_24052024_v1.pdf\n----------------\nDeine Auswahl: ")
 
         if pdf_path == "1":
-            pdf_path = "rulebook_one_page_test.pdf"
+            pdf_path = "../../data/pdf/rulebook_one_page_test.pdf"
 
         if pdf_path == "2":
-            pdf_path = "rulebook_three_page_test.pdf"
+            pdf_path = "../../data/pdf/rulebook_three_page_test.pdf"
 
         if pdf_path == "3":
-            pdf_path = "rulebook_two_sections_test.pdf"
+            pdf_path = "../../data/pdf/rulebook_two_sections_test.pdf"
 
         if pdf_path == "4":
-            pdf_path = "rulebook_three_sections_test.pdf"
+            pdf_path = "../../data/pdf/rulebook_three_sections_test.pdf"
 
         if pdf_path == "" or pdf_path == "5":
-            pdf_path = "2024_iihf_rulebook_24052024_v1.pdf"
+            pdf_path = "../../data/pdf/2024_iihf_rulebook_24052024_v1.pdf"
 
         if not os.path.isfile(pdf_path):
             print("Der angegebene Pfad ist ungültig. Bitte überprüfen Sie den Pfad und versuchen Sie es erneut.")
@@ -742,7 +742,7 @@ extract_pdf_path = rule_extractor.get_pdf_path()
 if extract_pdf_path is not None:
     rules = rule_extractor.extract_rules_from_pdf(extract_pdf_path)
 
-    with open('rules.json', 'w', encoding='utf-8') as f:
+    with open('../../data/json/rules/rules.json', 'w', encoding='utf-8') as f:
         json.dump(rule_extractor.rules, f, ensure_ascii=False, indent=4)
 
     print("\n--------------------------------------------------")
