@@ -1,0 +1,213 @@
+[
+    {
+        "section_number": "SECTION 01",
+        "section_name": "PLAYING AREA",
+        "section_rules": [
+            {
+                "rule_number": 1,
+                "situations": [
+                    {
+                        "number": "1.1",
+                        "question": "During the overtime, Team A is serving a minor penalty. The clock stops with 1:58 remaining in the period. Suddenly the Zamboni gate opens, and the ice crew comes onto the ice to shovel the excess snow. Is this permitted? Where do you find this in the rule book?",
+                        "answer": "This is not allowed according to Rule 87.2 and should be reported to proper authorities.",
+                        "rule_reference": null
+                    }
+                ]
+            },
+            {
+                "rule_number": 2,
+                "situations": null
+            },
+            {
+                "rule_number": 3,
+                "situations": null
+            },
+            {
+                "rule_number": 4,
+                "situations": [
+                    {
+                        "number": "4.1",
+                        "question": "The game clock shows that time has expired, but the horn has not sounded to signal the end of the period. Is the period over?",
+                        "answer": "Yes. As soon as one of the officials notices that time has expired, they should blow the whistle to stop play. If a goal is scored after time has run out (but before an official notices), the Referee shall consult with the Video Review Consultant, and the goal may be disallowed. Rule 4.",
+                        "rule_reference": null
+                    },
+                    {
+                        "number": "4.2",
+                        "question": "One of the officials notices that play has started but that the clock is not running. What is the procedure?",
+                        "answer": "Play may continue until the officials have the opportunity and/or need to stop the play (if stopped, it should be done when the puck is in the neutral zone, and when no immediate scoring opportunity is imminent – i.e., breakaway, empty net, etc.). Play may be allowed to continue to a normal stoppage in play. The Referee should then confer with the Game Timekeeper and/or the Video Review Consultant to reset the clock to the proper time. Rule 4, Rule 34.7 and Rule 37.6.",
+                        "rule_reference": null
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "section_number": "SECTION 02",
+        "section_name": "TEAMS",
+        "section_rules": [
+            {
+                "rule_number": 5,
+                "situations": [
+                    {
+                        "number": "5.1",
+                        "question": "Prior to the start of the game, after receiving the line-up from the Official Scorer, the Referees notice that the name one of the players on the visiting team's line-up has been written down twice with two different numbers for a total of 20 skaters and two goalkeepers. What procedure would the officials follow to rectify this situation? Where do you find this in the rule book?",
+                        "answer": "The Referee shall bring this to the attention of the offending team and to the official scorekeeper, so the proper corrections can be made. No penalty is assessed. Rule 5.1.",
+                        "rule_reference": null
+                    },
+                    {
+                        "number": "5.2",
+                        "question": "At the 14:00 minute mark of the first period, Team A scores a goal. Just before the Referee drops the puck at center ice, the Team B Coach calls the Referee over to the player’s bench. The Coach then informs the Referee that player A48, who was on the ice at the time of the goal, has its name misspelled on the roster sheet. What are the officials to do? Where do you find this in the rule book?",
+                        "answer": "The Referees shall disallow the goal and Team A48 shall be ruled off the ice because it is considered to be an ineligible player. Rule 5.2; Rule 78.5 (IV). NOTE: Common sense must prevail when making this decision. If, for example, the name in question is MacDonald yet on the roster sheet it was misspelled as McDonald, the spirit of the rule has not been altered and this goal should be allowed. However, if the name in question is Girard and was misspelled as Giroux, then this would not be in the spirit of the rule and the goal would have to be disallowed.",
+                        "rule_reference": null
+                    },
+                    {
+                        "number": "5.3",
+                        "question": "At 12:00 in second period Team A scores a goal. At the stoppage, Team B claims that A12 is not on the 20 skaters list and was on the ice at the time of the goal. They also mentioned that A12 received an assist on a goal in the first period. What is the Referee's decision? Where do you find this in the rule book?",
+                        "answer": "If a goal is scored when an ineligible player is on the ice (whether The player was involved in the scoring or not), the goal shall be disallowed. This only applies to the goal scored at the stoppage of play whereby the player was deemed to be ineligible. All other goals scored previously by the ineligible player's team (with the player on ice or not) shall be allowed. The ineligible player will be removed from the game, no additional penalties are to be assessed. Rule 5.2.",
+                        "rule_reference": null
+                    },
+                    {
+                        "number": "5.4",
+                        "question": "Team A12 receives a minor and a major in the early in the second period. On A12 second shift after returning to the ice A12 team scores. While at the Penalty Box the Referees are informed that Team A12 should have received a game misconduct for the major as it was the player’s second in the same game. What do the Referees do? Where do you find this in the rule book?",
+                        "answer": "The Referees must disallow the goal for an ineligible player (Rule 5.2) and assess Team A12 a game misconduct. (Rule 20.4).",
+                        "rule_reference": null
+                    },
+                    {
+                        "number": "5.5",
+                        "question": "Midway through the first period Team A's starting goalkeeper is injured and leaves the game. The backup goalkeeper comes into the game and since Team A has a third goalkeeper in attendance and the starting goalkeeper is injured to the point they will not return, the third goalkeeper dresses and sits on the bench. The second goalkeeper allows three goals but completes the first period. At the start of the second period, the third goalkeeper enters the game. The first two goalkeepers are not present on the bench. What should the officials do? Where do you find this in the rule book?",
+                        "answer": "Since a team's third goalkeeper may only participate \"if both listed goalkeepers are incapacitated\" the Referee would have to ask the Coach if the second goalkeeper is injured or sick. If the answer is yes, the third goalkeeper may play, however, if the answer is no, the second goalkeeper must return. Rule 5.3",
+                        "rule_reference": null
+                    },
+                    {
+                        "number": "5.6",
+                        "question": "Player #12 is listed on the roster but with the wrong name (the name is a duplication of another player on the roster). This is brought to the Referee’s attention during the game. Is it the name or the number (or both) that must be correct on the roster? Example: #2 Nicole Smith, #4 Julia Baker, #8 Taryn Daneman, #10 Maria Leggo, #12 Nicole Smith",
+                        "answer": "The name must be correct. #12 should have been listed as Lisa Carson and wasn’t. Therefore, the player must be removed from the game. Rule 5.1 and Rule 5.2.",
+                        "rule_reference": null
+                    },
+                    {
+                        "number": "5.7",
+                        "question": "Team A is leading 4 – 0. At the 8:59 mark of the first period, Team B informs the Referee that A13 is not on the roster sheet. A13 has 3 goals. What does the Referee do? Where do you find this in the rule book?",
+                        "answer": "A13 would be removed from the game. Since Team B brought it to the Referee's attention at a routine stoppage of play, all goals scored would be allowed. Rule 5.2",
+                        "rule_reference": null
+                    },
+                    {
+                        "number": "5.8",
+                        "question": "Team A1 goalkeeper has been assessed a game misconduct penalty early in the first period. Their substitute goalkeeper enters the game and sustains an injury in the second period and cannot continue. Team A does not have a third goalkeeper. Can the first goalkeeper (A1) who was kicked out in the first period enter the game again?",
+                        "answer": "No. Team A1 goalkeeper is ineligible because of the assessment of the game misconduct penalty. Team A may dress one player who was listed on the 20-man roster at the start of the game to be their goalkeeper. Rule 5.3.",
+                        "rule_reference": null
+                    },
+                    {
+                        "number": "5.9",
+                        "question": "How many players are allowed to dress in the warm-up?",
+                        "answer": "There is no maximum number. However, to be eligible to participate in the pre-game warm-up, a player needs to be registered for that IIHF Championship. Rule 5.6.",
+                        "rule_reference": null
+                    },
+                    {
+                        "number": "5.10",
+                        "question": "Both of Team A’s goalkeepers have sustained injuries in quick succession during the game. They have a third goalkeeper available. How much time are they permitted to get the third goalkeeper dressed and ready to play?",
+                        "answer": "The rule states that the goalkeeper “…shall be provided with a reasonable amount of time to get dressed, in addition to a two-minute warm-up.” Rule 5.3",
+                        "rule_reference": null
+                    }
+                ]
+            },
+            {
+                "rule_number": 6,
+                "situations": [
+                    {
+                        "number": "6.1",
+                        "question": "A team wishes to designate two co-Captains. Should the Referee allow a team to have more than one player act as Captain?",
+                        "answer": "No. Teams must designate only one Captain for each game. Teams may also designate not more than two (2) Alternate Captains. All such designations must comply with playing rules concerning identification. Rule 6.",
+                        "rule_reference": null
+                    },
+                    {
+                        "number": "6.2",
+                        "question": "The Official Scorer notifies the Referees prior to the start of the game that the Team A Coach has refused to name a captain and alternate captains. What, if anything, should the Referees do?",
+                        "answer": "The Referees should inform the Team A Coach that should they refuse to name a captain and/or alternate captains that they relinquish their right to have a spokesperson for the team to discuss issues with the officials during the game. Rule 6 and Rule 33.1.",
+                        "rule_reference": null
+                    }
+                ]
+            },
+            {
+                "rule_number": 7,
+                "situations": null
+            },
+            {
+                "rule_number": 8,
+                "situations": [
+                    {
+                        "number": "8.1",
+                        "question": "With 10 seconds left in the first period, a minor penalty is called on a player who must go to the dressing room due to an injury. Must they put a player in the Penalty Box to serve this penalty? If yes, does it have to be a player who was on the ice? When does it have to be someone on the ice? Where do you find this in the rule book?",
+                        "answer": "Rule states that they must substitute immediately for the injured player which shall serve the penalty until the injured player is able to return to the game. Any player may serve the penalty except the spare goalkeeper. Only goalkeepers’ penalties have to be served by someone on the ice at the time of the infraction. Rule 8.1 and Rule 27.1.",
+                        "rule_reference": null
+                    },
+                    {
+                        "number": "8.2",
+                        "question": "A player receives a coincidental penalty that will not appear on the clock. The penalized player is injured and goes to the dressing room. Following the expiration of the penalty time but before a stoppage of play following that expiration, the player returns to the bench. Can the player participate in the play (change on the fly) or would that player be considered an ineligible player? Where do you find this in the rule book?",
+                        "answer": "The player would have to be considered an ineligible player as the player has not been legally released from the Penalty Box. Rule 8.1; Rule 68.1; Rule 78.5 (IV).",
+                        "rule_reference": null
+                    },
+                    {
+                        "number": "8.3",
+                        "question": "Off the face-off in Team A's end zone, A20 attempts to draw the puck back and in the process hits Team B's center (B10) in the face with the butt-end of its stick. B10 immediately drops to the ice in a pool of blood and the play is stopped. Neither Referee witnessed what took place. The Linesperson informs the Referee what happened. What is the Referee's decision? Where is the ensuing face-off? Where do you find this in the rule book?",
+                        "answer": "After consulting with the Linesperson who saw the play, if it is determined that the contact was accidental due to both players being bent over during the face-off, no penalty shall be assessed. The face-off shall be conducted in the neutral zone outside of Team A's zone. Rule 60.1 and Rule 8.1.",
+                        "rule_reference": null
+                    },
+                    {
+                        "number": "8.4",
+                        "question": "During the Shootout, the shooter attempts to make a move on the goalkeeper and falls, sliding into the goalkeeper. The puck does not enter the net, but the goalkeeper is injured. The team select to place the substitute goalkeeper in the net for the next shootout attempt. Is the substitute goalkeeper permitted a warm-up? Where do you find this in the rule book?",
+                        "answer": "No warm-up is permitted. Rule 84.4, paragraph 6 and Rule 8.2.",
+                        "rule_reference": null
+                    },
+                    {
+                        "number": "8.5",
+                        "question": "Play is stopped in the second period due an injury sustained by Team A’s goalkeeper. The goalkeeper leaves the ice and is replaced by the substitute goalkeeper. The play resumes and before the next stoppage occurs, Team A changes goalkeepers on the fly, putting the original goalkeeper (who had been injured) back in the net. Is this allowed? Where do you find this in the rule book?",
+                        "answer": "This is not permitted and a minor penalty for delay of game is to be assessed. If the goalkeeper on the bench comes into the game at a stoppage of play to replace the goalkeeper on the ice who has been injured, they cannot switch places until the next stoppage of play. Rule 8.2",
+                        "rule_reference": null
+                    },
+                    {
+                        "number": "8.6",
+                        "question": "Team A's goalkeeper is injured and is replaced by the substitute goalkeeper. Play resumes and the injured goalkeeper (now on the Players’ Bench) has recovered and wants to return to its position. Team A selects to change goalkeepers on the fly. Shortly after the exchange, Team A scores. What, if anything, should the officials do?",
+                        "answer": "The injured goalkeeper cannot return to the game until the next stoppage in play (Rule 8.2), therefore the goalkeeper is considered an ineligible player and Team A cannot be permitted to score. Goal is disallowed, and minor penalty is assessed to the goalkeeper. Rule 78.5 (IV) and Rule 8.2.",
+                        "rule_reference": null
+                    },
+                    {
+                        "number": "8.7",
+                        "question": "Team A's goalkeeper is injured and is replaced by the substitute goalkeeper. Play resumes and the injured goalkeeper (now on the Players’ Bench) has recovered and wants to return to its position. Team A selects to change goalkeepers on the fly. Shortly after the exchange, Team B inadvertently puts the puck into their own goal. What, if anything, should the officials do?",
+                        "answer": "The injured goalkeeper cannot return to the game until the next stoppage in play (Rule 8.2), therefore the goalkeeper is an ineligible player and Team A cannot be permitted to score (even if Team B scored upon themselves). Goal is disallowed, and minor penalty is assessed to the goalkeeper. Rule 78.5 (IV) and Rule 8.2.",
+                        "rule_reference": null
+                    },
+                    {
+                        "number": "8.8",
+                        "question": "Can a goalkeeper be changed “on the fly” (i.e., can the goalkeeper on the ice be switched with the back-up goalkeeper while play is in progress)?",
+                        "answer": "Rule 74.1 states, “Players may be changed at any time during the play from the Players’ Bench….” It does not exclude goalkeepers, so yes, goalkeepers can be changed on the fly. However, there are three exceptions to this: a. If the goalkeeper on the bench comes into the game at a stoppage of play to replace the goalkeeper on the ice who has been injured, they cannot switch places until the next stoppage of play. Rule 8.2 b: If the team chooses to replace their goalkeeper to defend against a Penalty Shot, the replacement goalkeeper must remain in the game until the next stoppage of play. Rule 24.2. c: In overtime, once the goalkeeper has been removed for an extra attacker, the goalkeeper must wait until the next stoppage of play before returning to the ice. Any attempt to return to the ice prior to the next stoppage of play (“on the fly”) shall be deemed to be an illegal substitution and a bench minor penalty shall be assessed. Rule 74.5 It should be noted that the reference to goalkeepers’ substitution in Rule 82.1 last paragraph, pertains to changing goalkeepers during a stoppage of play and is not applicable for the scenario presented in this question.",
+                        "rule_reference": null
+                    },
+                    {
+                        "number": "8.9",
+                        "question": "Both goalkeepers are either injured, sick or for some other reason unable to participate in the game. The team does not have a third eligible goalkeeper available to them for use in the game. What does the team do?",
+                        "answer": "If this is known prior to the game, the team may dress any one of their eligible registered skaters as a goalkeeper and list the skater on the game line-up as such. If this happens during the game, they shall be granted a reasonable amount of time to dress one of the 20 remaining skaters on the game line-up as a goalkeeper and the skater will be given such privileges for the balance of the game. Rule 5.3.",
+                        "rule_reference": null
+                    },
+                    {
+                        "number": "8.10",
+                        "question": "Team B is in a delayed off-side position. Team A has the puck behind their own net and the whistle is blown because a Team A player is injured on the ice in the neutral zone. Where is the face-off? Does the injury take precedent over the delayed offside?",
+                        "answer": "Common sense would suggest that since the delayed off-side was still in effect, the face-off should be conducted in the neutral zone just outside Team A’s zone. Rule 8.1.",
+                        "rule_reference": null
+                    },
+                    {
+                        "number": "8.11",
+                        "question": "Team A4 is high-sticked in the face by Team B8. A delayed penalty is coming up to Team B8. The play is stopped when Team B gains possession and control of the puck. Team A4 is not injured, but the trainer comes on to the ice to attend to the player. Even though the play was stopped for the penalty, is Team A4 allowed to stay on the ice? Where do you find this in the book?",
+                        "answer": "Regardless of the reason the play was stopped, whenever an injured player is attended to on the ice by a trainer or by medical personnel, such player must be substituted for immediately. The injured player cannot return to the ice until play has resumed. Rule 8.1.",
+                        "rule_reference": null
+                    },
+                    {
+                        "number": "8.12",
+                        "question": "During play in Team A end zone, a Team A defender is injured blocking a shot. The player is crawling to the bench when the trainer opens a gate on the side boards, separate from the Players’ Bench, during the play and pulls the injured defender off the ice, and immediately to the dressing room. Is this legal, and where is it in the rule book?",
+                        "answer": "No this is not a legal player change. If an injured player wishes to retire from the ice and be replaced by a substitute, the player must do so at the Players’ Bench and no other exit. Therefore, a bench minor penalty shall be imposed. Rule 8.1.",
+                        "rule_reference": null
+                    }
+                ]
+            }
+        ]
+    }
+]

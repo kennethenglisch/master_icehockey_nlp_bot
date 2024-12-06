@@ -74,7 +74,7 @@ class RuleExtractor:
         self.old_subrule_number = 0
         self.old_subrule_name = None
 
-    def get_smallest_font_size(self):
+    def get_all_font_sizes(self):
         font_sizes = {
             self.page_number_font_size,
             self.section_number_font_size,
@@ -96,31 +96,13 @@ class RuleExtractor:
         for sizes in self.appendix_text_font_sizes:
             font_sizes.add(sizes)
 
-        return min(font_sizes)
+        return font_sizes
+
+    def get_smallest_font_size(self):
+        return min(self.get_all_font_sizes())
 
     def get_greatest_font_size(self):
-        font_sizes = {
-            self.page_number_font_size,
-            self.section_number_font_size,
-            self.section_name_font_size,
-        }
-
-        for size in self.rule_text_font_sizes:
-            font_sizes.add(size)
-
-        for size in self.rule_headline_font_sizes:
-            font_sizes.add(size)
-
-        for size in self.subrule_headline_font_sizes:
-            font_sizes.add(size)
-
-        for size in self.rule_reference_text_font_sizes:
-            font_sizes.add(size)
-
-        for sizes in self.appendix_text_font_sizes:
-            font_sizes.add(sizes)
-
-        return max(font_sizes)
+        return max(self.get_all_font_sizes())
 
     @staticmethod
     def get_pdf_path():

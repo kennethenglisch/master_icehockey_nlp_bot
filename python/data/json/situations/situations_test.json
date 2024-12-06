@@ -1,0 +1,23 @@
+[
+	{
+		"section_number": "SECTION 01",
+		"section_name": "PLAYING AREA",
+		"section_rules": [
+			{
+                "rule_number": 1,
+                "situations": [
+					{
+						"number": 1.1,
+						"question": "Temp",
+						"answer": "Temp",
+						"rule_reference": [
+							"87.2",
+							"18.3",
+							"4"
+						]
+					}
+                ]
+			}
+		]
+	}
+]
