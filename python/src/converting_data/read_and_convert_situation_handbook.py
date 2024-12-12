@@ -79,13 +79,12 @@ class SituationHandbookExtractor:
     @staticmethod
     def get_pdf_path():
         pdf_path = input(
-            "Bitte geben Sie den Pfad zu Ihrem Situation Handbook (PDF) ein oder wählen Sie eine der folgenden Optionen\nEnter oder 1 - situation_handbook_two_sections_test.pdf\n----------------\nDeine Auswahl: ")
+            "Bitte geben Sie den Pfad zu Ihrem Situation Handbook (PDF) ein oder wählen Sie eine der folgenden Optionen\n1 - situation_handbook_two_sections_test.pdf\nEnter oder 2 - 2024_iihf_situationhandbook_07102024-v2_0.pdf\n----------------\nDeine Auswahl: ")
 
-        if pdf_path == "" or pdf_path == "1":
+        if pdf_path == "1":
             pdf_path = str(rulebot.data_dir) + "/pdf/situation_handbook_two_sections_test.pdf"
 
-
-        if pdf_path == "all":
+        if pdf_path == "" or pdf_path == "2":
             pdf_path = str(rulebot.data_dir) + "/pdf/2024_iihf_situationhandbook_07102024-v2_0.pdf"
 
         if not os.path.isfile(pdf_path):
@@ -204,7 +203,9 @@ class SituationHandbookExtractor:
 
                                                     if self.current_answer_text:
                                                         current_situation["answer"] = self.current_answer_text
-                                                        self.extract_rule_reference_from_answer(self.current_answer_text) # todo
+                                                        rule_references = self.extract_rule_reference_from_answer(self.current_answer_text)
+                                                        if rule_references:
+                                                            current_situation["rule_reference"] = rule_references
                                                         self.current_answer_text = ""
 
                                                     if current_rule["situations"] is None:
@@ -229,7 +230,10 @@ class SituationHandbookExtractor:
 
                                                 if self.current_answer_text:
                                                     current_situation["answer"] = self.current_answer_text
-                                                    self.extract_rule_reference_from_answer(self.current_answer_text)  # todo
+                                                    rule_references = self.extract_rule_reference_from_answer(
+                                                        self.current_answer_text)
+                                                    if rule_references:
+                                                        current_situation["rule_reference"] = rule_references
                                                     self.current_answer_text = ""
 
                                                 if current_rule["situations"] is None:
@@ -256,7 +260,9 @@ class SituationHandbookExtractor:
 
                 if current_situation["answer"] == "" or current_situation["answer"] is None:
                     current_situation["answer"] = self.current_answer_text
-                    self.extract_rule_reference_from_answer(self.current_answer_text)  # todo
+                    rule_references = self.extract_rule_reference_from_answer(self.current_answer_text)
+                    if rule_references:
+                        current_situation["rule_reference"] = rule_references
 
                 current_rule = self.add_situation_if_needed(current_rule, current_situation)
 
@@ -368,16 +374,21 @@ class SituationHandbookExtractor:
         return {"status": True, "text": answer_text.strip()}
 
     def extract_rule_reference_from_answer(self, text):
-        # todo: implement rule reference extraction
         #pattern = r"Rule\s\d{1,3}(\.\d{1,3}){0,2}\.?\s?(?:\((I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)\)|I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)?$"
-        pattern = r"Rule\s(\d{1,3}(\.\d{1,3}){0,2}\.?\s?(?:\((I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)\)|I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)?)"
+        #pattern = r"Rule\s(\d{1,3}(\.\d{1,3}){0,2}\.?\s?(?:\((I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)\)|I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)?)"
+        #pattern = r"Rule\s(\d{1,3}(\.\d{1,3}){0,2}\.?\s?(?:\((I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)\)|I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)?)(?=\s|[.,;!?]|$)"
+        pattern = r"Rule\s(\d{1,3}(?:\.\d{1,3}){0,2}\.?(?:\s\((?:I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)\))?|\s\((?:\d{1,3}(?:\.\d{1,3}){0,2})\))?(?=\s|[.,;!?)]|$)"
 
         matches = re.findall(pattern, text)
-        print(text)
-        print(matches)
-        #for match in matches:
-        #    print("Gefunden:", match[0])  # `match[0]` ist die erste Gruppe (der gesamte Teil nach 'Rule')
-        print("-----------------------------------")
+        if matches:
+            rule_references = []
+            for match in matches:
+                if match.rstrip(".").strip() not in rule_references:
+                    rule_references.append(match.rstrip(".").strip())
+
+            return rule_references
+
+        return None
 
     def add_rule_if_needed(self, current_section, current_rule):
         if current_rule is None:
@@ -399,6 +410,10 @@ class SituationHandbookExtractor:
         if current_situation is None:
             return current_rule
 
+        if current_rule["situations"] is None:
+            current_rule["situations"] = [current_situation]
+            return current_rule
+
         situation_number = current_situation["number"]
         found = False
         for situation in current_rule["situations"]:
@@ -414,7 +429,9 @@ class SituationHandbookExtractor:
 
             if self.current_answer_text:
                 current_situation["answer"] = self.current_answer_text
-                self.extract_rule_reference_from_answer(self.current_answer_text)  # todo
+                rule_references = self.extract_rule_reference_from_answer(self.current_answer_text)
+                if rule_references:
+                    current_situation["rule_reference"] = rule_references
                 self.current_answer_text = ""
 
             current_rule["situations"].append(current_situation)
