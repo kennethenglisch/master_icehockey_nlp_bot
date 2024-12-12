@@ -2,6 +2,7 @@
 import fitz
 import json
 import re
+import rulebot
 
 class SituationHandbookExtractor:
     def __init__(self):
@@ -81,13 +82,15 @@ class SituationHandbookExtractor:
             "Bitte geben Sie den Pfad zu Ihrem Situation Handbook (PDF) ein oder wählen Sie eine der folgenden Optionen\nEnter oder 1 - situation_handbook_two_sections_test.pdf\n----------------\nDeine Auswahl: ")
 
         if pdf_path == "" or pdf_path == "1":
-            pdf_path = "../../data/pdf/situation_handbook_two_sections_test.pdf"
+            pdf_path = str(rulebot.data_dir) + "/pdf/situation_handbook_two_sections_test.pdf"
+
 
         if pdf_path == "all":
-            pdf_path = "../../data/pdf/2024_iihf_situationhandbook_07102024-v2_0.pdf"
+            pdf_path = str(rulebot.data_dir) + "/pdf/2024_iihf_situationhandbook_07102024-v2_0.pdf"
 
         if not os.path.isfile(pdf_path):
             print("Der angegebene Pfad ist ungültig. Bitte überprüfen Sie den Pfad und versuchen Sie es erneut.")
+            print(pdf_path)
             return None
 
         return pdf_path
@@ -366,10 +369,15 @@ class SituationHandbookExtractor:
 
     def extract_rule_reference_from_answer(self, text):
         # todo: implement rule reference extraction
-        pattern = r"Rule\s\d{1,3}(\.\d{1,3}){0,2}\.?\s?(\((I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)\)|I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)?$"
-        match = re.match(pattern, text, re.IGNORECASE)
-        if match:
-            print(match)
+        #pattern = r"Rule\s\d{1,3}(\.\d{1,3}){0,2}\.?\s?(?:\((I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)\)|I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)?$"
+        pattern = r"Rule\s(\d{1,3}(\.\d{1,3}){0,2}\.?\s?(?:\((I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)\)|I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)?)"
+
+        matches = re.findall(pattern, text)
+        print(text)
+        print(matches)
+        #for match in matches:
+        #    print("Gefunden:", match[0])  # `match[0]` ist die erste Gruppe (der gesamte Teil nach 'Rule')
+        print("-----------------------------------")
 
     def add_rule_if_needed(self, current_section, current_rule):
         if current_rule is None:
@@ -429,7 +437,7 @@ extract_pdf_path = situationHandbookExtractor.get_pdf_path()
 if extract_pdf_path is not None:
     docs = situationHandbookExtractor.extract_situations_from_pdf(extract_pdf_path)
 
-    with open('../../data/json/situations/situations.json', 'w', encoding='utf-8') as f:
+    with open(str(rulebot.data_dir) + '/json/situations/situations.json', 'w', encoding='utf-8') as f:
         json.dump(situationHandbookExtractor.docs, f, ensure_ascii=False, indent=4)
 
     print("\n--------------------------------------------------")
