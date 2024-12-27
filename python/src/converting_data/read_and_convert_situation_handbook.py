@@ -21,7 +21,7 @@ class SituationHandbookExtractor:
         # rule headline: font-size=11.0, font-color=21407, font=RobotoCondensed-Regular, example=RULE 1
         self.rule_headline_font_size = 12.0
         self.rule_headline_font_color = 21407
-        self.rule_headline_font = "RobotoCondensed-Regular"
+        self.rule_headline_fonts = ["RobotoCondensed-Regular", "RobotoCondensed-Bold"]
 
         # situation number: font-size=12.0, font-color=21407, font=RobotoCondensed-Regular, example=SITUATION 1.1
         self.situation_number_font_size = 12.0
@@ -78,13 +78,15 @@ class SituationHandbookExtractor:
 
     @staticmethod
     def get_pdf_path():
-        pdf_path = input(
-            "Bitte geben Sie den Pfad zu Ihrem Situation Handbook (PDF) ein oder wählen Sie eine der folgenden Optionen\n1 - situation_handbook_two_sections_test.pdf\nEnter oder 2 - 2024_iihf_situationhandbook_07102024-v2_0.pdf\n----------------\nDeine Auswahl: ")
+        pdf_path = input("Bitte geben Sie den Pfad zu Ihrem Situation Handbook (PDF) ein oder wählen Sie eine der folgenden Optionen\n1 - situation_handbook_two_sections_test.pdf\n2 - situation_handbook_section_three_test.pdf\nEnter oder 3 - 2024_iihf_situationhandbook_07102024-v2_0.pdf\n----------------\nDeine Auswahl: ")
 
         if pdf_path == "1":
             pdf_path = str(rulebot.data_dir) + "/pdf/situation_handbook_two_sections_test.pdf"
 
-        if pdf_path == "" or pdf_path == "2":
+        if pdf_path == "2":
+            pdf_path = str(rulebot.data_dir) + "/pdf/situation_handbook_section_three_test.pdf"
+
+        if pdf_path == "" or pdf_path == "3":
             pdf_path = str(rulebot.data_dir) + "/pdf/2024_iihf_situationhandbook_07102024-v2_0.pdf"
 
         if not os.path.isfile(pdf_path):
@@ -95,6 +97,7 @@ class SituationHandbookExtractor:
         return pdf_path
 
     def extract_situations_from_pdf(self, pdf_path):
+        break_all = False
         last_span = None
 
         current_section = []
@@ -115,6 +118,11 @@ class SituationHandbookExtractor:
                                     font_size = span["size"]
                                     font_color = span["color"]
                                     font = span["font"]
+
+                                    # if "RULE 9" in text:
+                                    #     print(span)
+                                    #     break_all = True
+                                    #     break
 
                                     if font_size < self.get_smallest_font_size() or font_size > self.get_greatest_font_size():
                                         continue
@@ -176,6 +184,18 @@ class SituationHandbookExtractor:
                                             if current_section:
                                                 if current_rule:
                                                     if current_situation:
+                                                        if self.current_question_text:
+                                                            current_situation["question"] = self.current_question_text
+                                                            self.current_question_text = ""
+
+                                                        if self.current_answer_text:
+                                                            current_situation["answer"] = self.current_answer_text
+                                                            rule_references = self.extract_rule_reference_from_answer(
+                                                                self.current_answer_text)
+                                                            if rule_references:
+                                                                current_situation["rule_reference"] = rule_references
+                                                            self.current_answer_text = ""
+
                                                         current_rule = self.add_situation_if_needed(current_rule, current_situation)
 
                                                     current_section = self.add_rule_if_needed(current_section, current_rule)
@@ -193,6 +213,13 @@ class SituationHandbookExtractor:
 
                                         if section_name_result["status"] and self.current_section_name != self.old_section_name:
                                             current_section["section_name"] = self.current_section_name
+
+                                            if self.is_miscellaneous():
+                                                current_section = {
+                                                    "section_number": self.current_section_number,
+                                                    "section_name": self.current_section_name,
+                                                    "section_situations": None
+                                                }
 
                                         if rule_number_result["status"] and self.current_rule_number != self.old_rule_number:
                                             if current_section and current_rule:
@@ -243,6 +270,27 @@ class SituationHandbookExtractor:
 
                                                 self.answer_headline_found = False
 
+                                            # different behavior when section is miscellaneous
+                                            if self.is_miscellaneous() and current_section and current_situation:
+                                                if self.current_question_text:
+                                                    current_situation["question"] = self.current_question_text
+                                                    self.current_question_text = ""
+
+                                                if self.current_answer_text:
+                                                    current_situation["answer"] = self.current_answer_text
+                                                    rule_references = self.extract_rule_reference_from_answer(
+                                                        self.current_answer_text)
+                                                    if rule_references:
+                                                        current_situation["rule_reference"] = rule_references
+                                                    self.current_answer_text = ""
+
+                                                if current_section["section_situations"] is None:
+                                                    current_section["section_situations"] = [current_situation]
+                                                else:
+                                                    current_section["section_situations"].append(current_situation)
+
+                                                self.answer_headline_found = False
+
                                             if self.current_question_text:
                                                 self.current_question_text = ""
 
@@ -252,6 +300,15 @@ class SituationHandbookExtractor:
                                                 "answer": None,
                                                 "rule_reference": None
                                             }
+
+                            if break_all:
+                                break
+
+                    if break_all:
+                        break
+
+                if break_all:
+                    break
 
         if current_section and current_rule:
             if current_situation:
@@ -269,6 +326,19 @@ class SituationHandbookExtractor:
             current_section = self.add_rule_if_needed(current_section, current_rule)
             self.docs.append(current_section)
 
+        if self.is_miscellaneous() and current_section:
+            if current_situation:
+                if current_situation["question"] == "" or current_situation["question"] is None:
+                    current_situation["question"] = self.current_question_text
+
+                if current_situation["answer"] == "" or current_situation["answer"] is None:
+                    current_situation["answer"] = self.current_answer_text
+                    rule_references = self.extract_rule_reference_from_answer(self.current_answer_text)
+                    if rule_references:
+                        current_situation["rule_reference"] = rule_references
+                current_section = self.add_situation_if_needed(current_section, current_situation, "section_situations")
+                self.docs.append(current_section)
+
         return self.docs
 
     @staticmethod
@@ -277,6 +347,9 @@ class SituationHandbookExtractor:
             return True
 
         return False
+
+    def is_miscellaneous(self):
+        return self.current_section_name is not None and self.current_section_name.upper() == "MISCELLANEOUS"
 
     def has_found_section(self):
         return self.current_section_number is not None
@@ -304,7 +377,7 @@ class SituationHandbookExtractor:
         return {"status": False, "name": None}
 
     def check_and_clean_rule_number(self, text, font_size, font_color, font):
-        if font_size != self.rule_headline_font_size or font_color != self.rule_headline_font_color or self.rule_headline_font != font:
+        if font_size != self.rule_headline_font_size or font_color != self.rule_headline_font_color or font not in self.rule_headline_fonts:
             return {"status": False, "num": None}
 
         try:
@@ -323,8 +396,11 @@ class SituationHandbookExtractor:
         if font_size != self.situation_number_font_size or font_color != self.situation_number_font_color or self.situation_number_font != font:
             return {"status": False, "num": None}
 
-
         match = re.search(r"SITUATION\s(\d{1,3}\.\d{1,3})", stripped_text)
+
+        if self.is_miscellaneous():
+            match = re.search(r"M\s(\d{1,3})", stripped_text)
+
         if match:
             return {"status": True, "num": match.group(1)}
 
@@ -374,21 +450,28 @@ class SituationHandbookExtractor:
         return {"status": True, "text": answer_text.strip()}
 
     def extract_rule_reference_from_answer(self, text):
-        #pattern = r"Rule\s\d{1,3}(\.\d{1,3}){0,2}\.?\s?(?:\((I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)\)|I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)?$"
-        #pattern = r"Rule\s(\d{1,3}(\.\d{1,3}){0,2}\.?\s?(?:\((I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)\)|I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)?)"
-        #pattern = r"Rule\s(\d{1,3}(\.\d{1,3}){0,2}\.?\s?(?:\((I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)\)|I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)?)(?=\s|[.,;!?]|$)"
-        pattern = r"Rule\s(\d{1,3}(?:\.\d{1,3}){0,2}\.?(?:\s\((?:I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)\))?|\s\((?:\d{1,3}(?:\.\d{1,3}){0,2})\))?(?=\s|[.,;!?)]|$)"
+        rule_references = []
 
+        pattern = r"Rule\s(\d{1,3}(?:\.\d{1,3}){0,2}\.?(?:\s\((?:I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)\))?|\s\((?:\d{1,3}(?:\.\d{1,3}){0,2})\))?(?=\s|[.,;!?)]|$)"
         matches = re.findall(pattern, text)
         if matches:
-            rule_references = []
             for match in matches:
                 if match.rstrip(".").strip() not in rule_references:
                     rule_references.append(match.rstrip(".").strip())
 
-            return rule_references
+        # another pattern for in-text references that have "and", "or" or "," in between
+        pattern = r"(?i)\bRules?\s\d{1,3}(?:\.\d{1,3}){0,2}\.?(?:\s\((?=[\s.,;!?)]|$)(?:I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)(?=[\s.,;!?)]|$)\)|\s(?<=[\s(])(?:I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)(?=[\s.,;!?)]|$))?(?:\s(?:and|or)\s\d{1,3}(?:\.\d{1,3}){0,2}\.?(?:\s\((?=[\s.,;!?)]|$)(?:I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)(?=[\s.,;!?)]|$)\)|\s(?<=[\s(])(?:I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)(?=[\s.,;!?)]|$))?)?(?:,\s\d{1,3}(?:\.\d{1,3}){0,2}\.?(?:\s\((?=[\s.,;!?)]|$)(?:I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)(?=[\s.,;!?)]|$)\)|\s(?<=[\s(])(?:I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)(?=[\s.,;!?)]|$))?)*"
+        matches = re.findall(pattern, text)
+        if matches:
+            for match in matches:
+                rule_number_pattern = r"(\d{1,3}(?:\.\d{1,3}){0,2}\.?\s*(?:\((?:I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)\))?)"
+                rule_numbers = re.findall(rule_number_pattern, match)
+                if rule_numbers:
+                    for rule_number in rule_numbers:
+                        if rule_number.rstrip(".").strip() not in rule_references:
+                            rule_references.append(rule_number.rstrip(".").strip())
 
-        return None
+        return rule_references if len(rule_references) > 0 else None
 
     def add_rule_if_needed(self, current_section, current_rule):
         if current_rule is None:
@@ -406,17 +489,17 @@ class SituationHandbookExtractor:
 
         return current_section
 
-    def add_situation_if_needed(self, current_rule, current_situation):
+    def add_situation_if_needed(self, current_section_or_rule, current_situation, situation_key = "situations"):
         if current_situation is None:
-            return current_rule
+            return current_section_or_rule
 
-        if current_rule["situations"] is None:
-            current_rule["situations"] = [current_situation]
-            return current_rule
+        if current_section_or_rule[situation_key] is None:
+            current_section_or_rule[situation_key] = [current_situation]
+            return current_section_or_rule
 
         situation_number = current_situation["number"]
         found = False
-        for situation in current_rule["situations"]:
+        for situation in current_section_or_rule[situation_key]:
             if situation_number == situation["number"]:
                 found = True
                 break
@@ -434,9 +517,9 @@ class SituationHandbookExtractor:
                     current_situation["rule_reference"] = rule_references
                 self.current_answer_text = ""
 
-            current_rule["situations"].append(current_situation)
+            current_section_or_rule[situation_key].append(current_situation)
 
-        return current_rule
+        return current_section_or_rule
 
     @staticmethod
     def remove_hyphenation(text):
