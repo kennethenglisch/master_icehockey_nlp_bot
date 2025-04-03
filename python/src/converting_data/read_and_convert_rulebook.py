@@ -2,8 +2,8 @@
 import fitz
 import json
 import re
+import rulebot
 
-# todo: maybe highlight bold text with <b> or something else
 class RuleExtractor:
     def __init__(self):
         self.rules = []
@@ -106,25 +106,25 @@ class RuleExtractor:
 
     @staticmethod
     def get_pdf_path():
-        pdf_path = input("Bitte geben Sie den Pfad zu Ihrem Regelbuch (PDF) ein oder wählen Sie eine der folgenden Optionen\n1 - rulebook_one_page_test.pdf\n2 - rulebook_three_page_test.pdf\n3 - rulebook_two_sections_test.pdf\n4 - rulebook_three_sections_test.pdf\nEnter oder 5 - 2024_iihf_rulebook_24052024_v1.pdf\n----------------\nDeine Auswahl: ")
+        pdf_path = input("Please enter the path to your rulebook (PDF) or select one of the following options\n1 - rulebook_one_page_test.pdf\n2 - rulebook_three_page_test.pdf\n3 - rulebook_two_sections_test.pdf\n4 - rulebook_three_sections_test.pdf\nEnter or 5 - 2024_iihf_rulebook_24052024_v1.pdf\n----------------\nYour selection: ")
 
         if pdf_path == "1":
-            pdf_path = "../../data/pdf/rulebook_one_page_test.pdf"
+            pdf_path = str(rulebot.data_dir) + "/pdf/rulebook_one_page_test.pdf"
 
         if pdf_path == "2":
-            pdf_path = "../../data/pdf/rulebook_three_page_test.pdf"
+            pdf_path = str(rulebot.data_dir) + "/pdf/rulebook_three_page_test.pdf"
 
         if pdf_path == "3":
-            pdf_path = "../../data/pdf/rulebook_two_sections_test.pdf"
+            pdf_path = str(rulebot.data_dir) + "/pdf/rulebook_two_sections_test.pdf"
 
         if pdf_path == "4":
-            pdf_path = "../../data/pdf/rulebook_three_sections_test.pdf"
+            pdf_path = str(rulebot.data_dir) + "/pdf/rulebook_three_sections_test.pdf"
 
         if pdf_path == "" or pdf_path == "5":
-            pdf_path = "../../data/pdf/2024_iihf_rulebook_24052024_v1.pdf"
+            pdf_path = str(rulebot.data_dir) + "/pdf/2024_iihf_rulebook_24052024_v1.pdf"
 
         if not os.path.isfile(pdf_path):
-            print("Der angegebene Pfad ist ungültig. Bitte überprüfen Sie den Pfad und versuchen Sie es erneut.")
+            print("The specified path is invalid. Please check the path and try again.")
             return None
 
         return pdf_path
@@ -197,7 +197,7 @@ class RuleExtractor:
                                             self.current_rule_number = rule_number_result["num"]
                                             anything_found = True
 
-                                    if not anything_found:
+                                    if not anything_found or (anything_found and self.current_rule_number >= 100):
                                         # check for rule name
                                         rule_name_result = self.check_and_clean_rule_name(text, font_size, font_color, font, last_span)
                                         if rule_name_result["status"]:
@@ -241,7 +241,6 @@ class RuleExtractor:
 
                                     # check if we got a new rule or subrule
                                     if anything_found:
-                                        # todo: new structure as in test.json
                                         # check for new section
                                         if section_number_result["status"] and self.current_section_number != self.old_section_number:
                                             if current_section:
@@ -478,6 +477,11 @@ class RuleExtractor:
             result = self.check_and_clean_rule_number(last_span["text"], last_span["size"], last_span["color"], last_span["font"])
             if result["status"]:
                 return {"status": True, "name": stripped_text}
+            elif not result["status"]:
+                match = re.search(r"RULE\s*(\d+)", stripped_text, re.IGNORECASE)
+                if match:
+                    text = re.sub(r"RULE\s*(\d+)", "", stripped_text)
+                    return {"status": True, "name": text.strip()}
 
         return {"status": False, "name": None}
 
@@ -724,8 +728,8 @@ extract_pdf_path = rule_extractor.get_pdf_path()
 if extract_pdf_path is not None:
     rules = rule_extractor.extract_rules_from_pdf(extract_pdf_path)
 
-    with open('../../data/json/rules/rules.json', 'w', encoding='utf-8') as f:
+    with open(str(rulebot.data_dir) + '/json/rules/rules.json', 'w', encoding='utf-8') as f:
         json.dump(rule_extractor.rules, f, ensure_ascii=False, indent=4)
 
     print("\n--------------------------------------------------")
-    print("Regeln wurden extrahiert und gespeichert.")
+    print("Rules were extracted and saved.")

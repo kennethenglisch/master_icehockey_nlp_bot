@@ -1,0 +1,66 @@
+{
+  "best_metric": 3.2498490810394287,
+  "best_model_checkpoint": "D:\\Uni\\Master\\Masterarbeit\\master_icehockey_nlp_bot\\python\\data/roberta/roberta_model_trained_v3\\checkpoint-16",
+  "epoch": 2.838709677419355,
+  "eval_steps": 500,
+  "global_step": 45,
+  "is_hyper_param_search": false,
+  "is_local_process_zero": true,
+  "is_world_process_zero": true,
+  "log_history": [
+    {
+      "epoch": 1.0,
+      "eval_loss": 3.2498490810394287,
+      "eval_runtime": 0.3759,
+      "eval_samples_per_second": 329.872,
+      "eval_steps_per_second": 21.282,
+      "step": 16
+    },
+    {
+      "epoch": 2.0,
+      "eval_loss": 3.255570650100708,
+      "eval_runtime": 0.376,
+      "eval_samples_per_second": 329.771,
+      "eval_steps_per_second": 21.276,
+      "step": 32
+    },
+    {
+      "epoch": 2.838709677419355,
+      "eval_loss": 3.257997989654541,
+      "eval_runtime": 0.6111,
+      "eval_samples_per_second": 202.926,
+      "eval_steps_per_second": 13.092,
+      "step": 45
+    }
+  ],
+  "logging_steps": 50,
+  "max_steps": 45,
+  "num_input_tokens_seen": 0,
+  "num_train_epochs": 3,
+  "save_steps": 500,
+  "stateful_callbacks": {
+    "EarlyStoppingCallback": {
+      "args": {
+        "early_stopping_patience": 2,
+        "early_stopping_threshold": 0.0
+      },
+      "attributes": {
+        "early_stopping_patience_counter": 2
+      }
+    },
+    "TrainerControl": {
+      "args": {
+        "should_epoch_stop": false,
+        "should_evaluate": false,
+        "should_log": false,
+        "should_save": true,
+        "should_training_stop": true
+      },
+      "attributes": {}
+    }
+  },
+  "total_flos": 367905833484288.0,
+  "train_batch_size": 16,
+  "trial_name": null,
+  "trial_params": null
+}

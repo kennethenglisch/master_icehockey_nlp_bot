@@ -1,0 +1,80 @@
+﻿{
+    "version": "v2.0",
+    "data": [
+        {
+            "title": "SECTION 01 - Rule 1",
+            "paragraphs": [
+                {
+                    "context": "This is not allowed according to Rule 87.2 and should be reported to proper authorities.",
+                    "qas": [
+                        {
+                            "question": "During the overtime, Team A is serving a minor penalty. The clock stops with 1:58 remaining in the period. Suddenly the Zamboni gate opens, and the ice crew comes onto the ice to shovel the excess snow. Is this permitted? Where do you find this in the rule book?",
+                            "id": "1.1",
+                            "answers": [
+                                {
+                                    "text": "This is not allowed according to Rule 87.2 and should be reported to proper authorities.",
+                                    "answer_start": 0
+                                }
+                            ],
+                            "metadata": {
+                                "rule_references": [
+                                    "87.2"
+                                ]
+                            },
+                            "is_impossible": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "SECTION 01 - Rule 4",
+            "paragraphs": [
+                {
+                    "context": "Yes. As soon as one of the officials notices that time has expired, they should blow the whistle to stop play. If a goal is scored after time has run out (but before an official notices), the Referee shall consult with the Video Review Consultant, and the goal may be disallowed. Rule 4.",
+                    "qas": [
+                        {
+                            "question": "The game clock shows that time has expired, but the horn has not sounded to signal the end of the period. Is the period over?",
+                            "id": "4.1",
+                            "answers": [
+                                {
+                                    "text": "Yes. As soon as one of the officials notices that time has expired, they should blow the whistle to stop play. If a goal is scored after time has run out (but before an official notices), the Referee shall consult with the Video Review Consultant, and the goal may be disallowed. Rule 4.",
+                                    "answer_start": 0
+                                }
+                            ],
+                            "metadata": {
+                                "rule_references": [
+                                    "4"
+                                ]
+                            },
+                            "is_impossible": false
+                        }
+                    ]
+                },
+                {
+                    "context": "Play may continue until the officials have the opportunity and/or need to stop the play (if stopped, it should be done when the puck is in the neutral zone, and when no immediate scoring opportunity is imminent – i.e., breakaway, empty net, etc.). Play may be allowed to continue to a normal stoppage in play. The Referee should then confer with the Game Timekeeper and/or the Video Review Consultant to reset the clock to the proper time. Rule 4, Rule 34.7 and Rule 37.6.",
+                    "qas": [
+                        {
+                            "question": "One of the officials notices that play has started but that the clock is not running. What is the procedure?",
+                            "id": "4.2",
+                            "answers": [
+                                {
+                                    "text": "Play may continue until the officials have the opportunity and/or need to stop the play (if stopped, it should be done when the puck is in the neutral zone, and when no immediate scoring opportunity is imminent – i.e., breakaway, empty net, etc.). Play may be allowed to continue to a normal stoppage in play. The Referee should then confer with the Game Timekeeper and/or the Video Review Consultant to reset the clock to the proper time. Rule 4, Rule 34.7 and Rule 37.6.",
+                                    "answer_start": 0
+                                }
+                            ],
+                            "metadata": {
+                                "rule_references": [
+                                    "4",
+                                    "34.7",
+                                    "37.6"
+                                ]
+                            },
+                            "is_impossible": false
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

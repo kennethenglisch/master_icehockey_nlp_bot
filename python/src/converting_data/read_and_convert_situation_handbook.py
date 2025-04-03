@@ -78,7 +78,7 @@ class SituationHandbookExtractor:
 
     @staticmethod
     def get_pdf_path():
-        pdf_path = input("Bitte geben Sie den Pfad zu Ihrem Situation Handbook (PDF) ein oder wählen Sie eine der folgenden Optionen\n1 - situation_handbook_two_sections_test.pdf\n2 - situation_handbook_section_three_test.pdf\nEnter oder 3 - 2024_iihf_situationhandbook_07102024-v2_0.pdf\n----------------\nDeine Auswahl: ")
+        pdf_path = input("Please enter the path to your Situation Handbook (PDF) or select one of the following options\n1 - situation_handbook_two_sections_test.pdf\n2 - situation_handbook_section_three_test.pdf\nEnter or 3 - 2024_iihf_situationhandbook_07102024-v2_0.pdf\n----------------\nYour selection: ")
 
         if pdf_path == "1":
             pdf_path = str(rulebot.data_dir) + "/pdf/situation_handbook_two_sections_test.pdf"
@@ -90,7 +90,7 @@ class SituationHandbookExtractor:
             pdf_path = str(rulebot.data_dir) + "/pdf/2024_iihf_situationhandbook_07102024-v2_0.pdf"
 
         if not os.path.isfile(pdf_path):
-            print("Der angegebene Pfad ist ungültig. Bitte überprüfen Sie den Pfad und versuchen Sie es erneut.")
+            print("The specified path is invalid. Please check the path and try again.")
             print(pdf_path)
             return None
 
@@ -118,11 +118,6 @@ class SituationHandbookExtractor:
                                     font_size = span["size"]
                                     font_color = span["color"]
                                     font = span["font"]
-
-                                    # if "RULE 9" in text:
-                                    #     print(span)
-                                    #     break_all = True
-                                    #     break
 
                                     if font_size < self.get_smallest_font_size() or font_size > self.get_greatest_font_size():
                                         continue
@@ -541,4 +536,4 @@ if extract_pdf_path is not None:
         json.dump(situationHandbookExtractor.docs, f, ensure_ascii=False, indent=4)
 
     print("\n--------------------------------------------------")
-    print("Situationen wurden extrahiert und gespeichert.")
+    print("Situations were extracted and saved.")

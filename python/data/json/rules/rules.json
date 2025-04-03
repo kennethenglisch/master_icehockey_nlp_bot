@@ -4935,7 +4935,7 @@
             {
                 "page": 147,
                 "rule_number": 100,
-                "rule_name": null,
+                "rule_name": "WOMEN’S HOCKEY – AGE CATEGORIES",
                 "rule_text": null,
                 "appendix_information": null,
                 "rule_reference": null,
@@ -4953,7 +4953,7 @@
             {
                 "page": 147,
                 "rule_number": 101,
-                "rule_name": null,
+                "rule_name": "WOMEN’S HOCKEY – SPECIFIC PLAYING RULES",
                 "rule_text": null,
                 "appendix_information": null,
                 "rule_reference": null,
@@ -4971,7 +4971,7 @@
             {
                 "page": 148,
                 "rule_number": 102,
-                "rule_name": null,
+                "rule_name": "WOMEN’S HOCKEY – SPECIFIC EQUIPMENT RULES",
                 "rule_text": null,
                 "appendix_information": [
                     "III – Ice Hockey Equipment"
@@ -5061,7 +5061,7 @@
             {
                 "page": 151,
                 "rule_number": 200,
-                "rule_name": null,
+                "rule_name": "MEN’S JUNIOR HOCKEY – AGE CATEGORIES",
                 "rule_text": null,
                 "appendix_information": null,
                 "rule_reference": null,
@@ -5079,7 +5079,7 @@
             {
                 "page": 151,
                 "rule_number": 201,
-                "rule_name": null,
+                "rule_name": "MEN’S JUNIOR HOCKEY – SPECIFIC PLAYING RULES",
                 "rule_text": null,
                 "appendix_information": null,
                 "rule_reference": null,
@@ -5097,7 +5097,7 @@
             {
                 "page": 151,
                 "rule_number": 202,
-                "rule_name": null,
+                "rule_name": "MEN’S JUNIOR HOCKEY – SPECIFIC EQUIPMENT RULES",
                 "rule_text": null,
                 "appendix_information": [
                     "III – Ice Hockey Equipment"

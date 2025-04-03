@@ -1,0 +1,5 @@
+data/roberta/logs
+data/roberta/roberta_model_finetuned
+data/roberta/roberta_model_trained
+data/roberta/roberta_model_trained_v2
+data/roberta/roberta_model_trained_v3
