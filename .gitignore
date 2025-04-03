@@ -166,3 +166,5 @@ __pycache__/
 
 # ignore trained model files because they are too large
 .safetensors
+model.safetensors
+optimizer.pt
